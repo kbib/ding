@@ -80,9 +80,11 @@ function ding_debt_debt_list_content_type_render($subtype, $conf, $panel_args, $
           }
         }
 
-        $block->content .= t('. !debt_pay_link.', array(
-            '!debt_pay_link' => l(t('Pay now'), 'user/' . $account->uid . '/debts'),
-          ));
+        if(module_exists('ding_dibs')){
+          $block->content .= t('. !debt_pay_link.', array(
+              '!debt_pay_link' => l(t('Pay now'), 'user/' . $account->uid . '/debts'),
+            ));
+        }
 
         break;
 

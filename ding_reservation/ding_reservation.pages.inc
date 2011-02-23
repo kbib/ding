@@ -127,8 +127,8 @@ function ding_reservation_confirm_form(&$form_state, $account, $object, $reserva
  */
 function ding_reservation_confirm_form_submit($form, &$form_state) {
   $reservation = ding_provider_invoke('reservation', 'create', $form_state['values']['account'], $form_state['values']['reservable'], array('pickup_branch' => $form_state['values']['account']->preferred_branch));
-
-  if ($reservation && $reservation != DING_PROVIDER_AUTH_REQUIRED) {
+  
+  if ($reservation && $reservation['status'] == DING_RESERVATION_SUCCESS) {
     drupal_set_message(t('@item is now on your reservation list.', array('@item' => $form_state['values']['object']->title)));
   }
   else {

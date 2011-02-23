@@ -130,8 +130,8 @@ function ding_reservation_confirm_form_submit($form, &$form_state) {
   
   watchdog('res',var_export($reservation,true));
   watchdog('res',DING_RESERVATION_SUCCESS);
-  
-  if ($reservation && $reservation['status'] == DING_RESERVATION_SUCCESS) {
+  watchdog('res','cond:'.$reservation && ($reservation['status'] == DING_RESERVATION_SUCCESS));
+  if($reservation && ($reservation['status'] == DING_RESERVATION_SUCCESS)) {
     drupal_set_message(t('@item is now on your reservation list.', array('@item' => $form_state['values']['object']->title)));
     watchdog('res','msg set!');
   }

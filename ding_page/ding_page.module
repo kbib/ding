@@ -1,5 +1,4 @@
-<?php // $Id$
-
+<?php
 /**
  * @file ding_page.module
  * Provides the page node type for the Ding! project.

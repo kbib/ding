@@ -1,5 +1,4 @@
 <?php
-// $Id$
 
 /**
  * Implementation of hook_menu().
@@ -174,5 +173,5 @@ function ding_cart_detect_ahah() {
  */
 function ding_cart_remove_item($account, $local_id) {
   db_query("DELETE FROM {ding_cart} WHERE uid = %d AND local_id = '%s';", $account->uid, $local_id);
-
 }
+

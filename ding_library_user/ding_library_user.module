@@ -1,5 +1,4 @@
 <?php
-// $Id$
 
 // Default interest period is ~six months.
 // TODO: move to ding_reservation
@@ -85,18 +84,8 @@ function ding_library_user_user($op, &$edit, &$account, $category = NULL) {
   switch ($op) {
     case 'view':
       if ($account->uid == $user->uid) {
+        // Hide the standard summary, since the rest is provided by Panels.
         $account->content['summary']['#access'] = FALSE;
-        $account->content['personal_info'] = array(
-          '#type' => 'user_profile_category',
-          '#title' => t('Your profile'),
-        );
-
-        // I know this is not pretty, should be refactored to something more
-        // like standard profile view.
-        $account->content['personal_info']['vcard'] = array(
-          '#value' => theme('ding_library_user_personal_info', $account, NULL),
-        );
-
       }
       break;
   }
@@ -276,11 +265,13 @@ function ding_library_user_authenticate_user($name, $pass) {
 }
 
 /**
+ * Helper function to generate a default username.
  *
+ * Since users should not use their Drupal username to log in, we generate
+ * a long, unguessable name.
  */
 function ding_library_user_default_authname($name) {
   return md5(drupal_get_private_key() . $name) . '@ding_library_user';
-
 }
 
 /**
@@ -486,7 +477,11 @@ function ding_library_user_format_date($datestring, $date_format) {
     $timestamp = strtotime($datestring);
 
     if ($timestamp > 1) {
-      return format_date($timestamp, 'custom', $date_format);
+      // Adjust timezone as the original string didn't have one. This
+      // ensures that it is printed in the same zone as PHP assumes
+      // the string to be in, avoiding shifting the date to a previous
+      // day due to daylight saving time.
+      return format_date($timestamp, 'custom', $date_format, date_offset_get(new DateTime($datestring)));
     }
   }
   return $datestring;

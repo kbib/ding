@@ -469,15 +469,6 @@ function ding_default_permissions_user_default_permissions() {
     ),
   );
 
-  // Exported permission: display admin pages in another language
-  $permissions['display admin pages in another language'] = array(
-    'name' => 'display admin pages in another language',
-    'roles' => array(
-      '0' => 'administrator',
-      '1' => 'editor',
-    ),
-  );
-
   // Exported permission: edit any article content
   $permissions['edit any article content'] = array(
     'name' => 'edit any article content',
@@ -773,6 +764,26 @@ function ding_default_permissions_user_default_permissions() {
       '0' => 'administrator',
       '1' => 'anonymous user',
       '2' => 'authenticated user',
+    ),
+  );
+
+  // Exported permission: edit advanced node properties
+  $permissions['edit advanced node properties'] = array(
+    'name' => 'view search carousel',
+    'roles' => array(
+      '0' => 'administrator',
+      '1' => 'author',
+      '2' => 'editor',
+    ),
+  );
+
+  // Exported permission: access environment indicator
+  $permissions['access environment indicator'] = array(
+    'name' => 'view search carousel',
+    'roles' => array(
+      '0' => 'administrator',
+      '1' => 'author',
+      '2' => 'editor',
     ),
   );
 

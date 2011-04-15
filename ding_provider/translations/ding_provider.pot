@@ -1,4 +1,3 @@
-# $Id$
 #
 # LANGUAGE translation of Drupal (general)
 # Copyright YEAR NAME <EMAIL@ADDRESS>
@@ -11,7 +10,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2010-10-28 13:15+0200\n"
+"POT-Creation-Date: 2011-01-19 14:29+0100\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -32,51 +31,51 @@ msgstr ""
 msgid "Ding!"
 msgstr ""
 
-#: ding_provider.module:41
+#: ding_provider.module:42
 msgid "Users"
 msgstr ""
 
-#: ding_provider.module:46
+#: ding_provider.module:47
 msgid "Loans"
 msgstr ""
 
-#: ding_provider.module:51
+#: ding_provider.module:52
 msgid "Reservations"
 msgstr ""
 
-#: ding_provider.module:56
+#: ding_provider.module:57
 msgid "Availability"
 msgstr ""
 
-#: ding_provider.module:61
+#: ding_provider.module:62
 msgid "Booking"
 msgstr ""
 
-#: ding_provider.module:66
+#: ding_provider.module:67
 msgid "Debt"
 msgstr ""
 
-#: ding_provider.module:71
+#: ding_provider.module:72
 msgid "Branches"
 msgstr ""
 
-#: ding_provider.module:248;317
+#: ding_provider.module:254;323
 msgid "Ding @type provider plugin %plugin (%module module) does not implement %function"
 msgstr ""
 
-#: ding_provider.module:342
+#: ding_provider.module:348
 msgid "Ding provider plugin %plugin (%module module) does not implement form %form_name"
 msgstr ""
 
-#: ding_provider.module:386
+#: ding_provider.module:392
 msgid "@description (provided by @module module)"
 msgstr ""
 
-#: ding_provider.module:320;345
+#: ding_provider.module:326;351
 msgid "ding_provider"
 msgstr ""
 
-#: ding_provider.module:320;345
+#: ding_provider.module:326;351
 msgid "Provider module not configured for provider type %type."
 msgstr ""
 

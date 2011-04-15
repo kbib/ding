@@ -1,5 +1,4 @@
 <?php
-// $Id$
 
 /**
  * Library system user settings form.

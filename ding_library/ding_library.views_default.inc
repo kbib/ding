@@ -96,7 +96,9 @@ function ding_library_views_default_views() {
     'type' => 'none',
   ));
   $handler->override_option('cache', array(
-    'type' => 'rules',
+    'type' => 'time',
+    'results_lifespan' => '300',
+    'output_lifespan' => '300',
   ));
   $handler->override_option('title', 'Biblioteker');
   $handler->override_option('items_per_page', 0);
@@ -254,7 +256,7 @@ function ding_library_views_default_views() {
       'field' => 'field_image_fid',
       'relationship' => 'none',
     ),
-    'title' => array(
+    'display_name' => array(
       'label' => '',
       'alter' => array(
         'alter_text' => 0,
@@ -271,17 +273,19 @@ function ding_library_views_default_views() {
         'max_length' => '',
         'word_boundary' => 1,
         'ellipsis' => 1,
-        'strip_tags' => 0,
         'html' => 0,
+        'strip_tags' => 0,
       ),
       'empty' => '',
       'hide_empty' => 0,
       'empty_zero' => 0,
-      'link_to_node' => 1,
+      'link_to_user' => 1,
+      'overwrite_anonymous' => 0,
+      'anonymous_text' => '',
       'exclude' => 0,
-      'id' => 'title',
-      'table' => 'node',
-      'field' => 'title',
+      'id' => 'display_name',
+      'table' => 'users',
+      'field' => 'display_name',
       'relationship' => 'none',
     ),
     'field_staff_title_value' => array(
@@ -320,12 +324,10 @@ function ding_library_views_default_views() {
     ),
   ));
   $handler->override_option('sorts', array(
-    'title' => array(
-      'order' => 'ASC',
-      'id' => 'title',
-      'table' => 'node',
-      'field' => 'title',
-      'relationship' => 'none',
+    'display_name' => array(
+      'id' => 'display_name',
+      'table' => 'ding_user',
+      'field' => 'display_name',
     ),
   ));
   $handler->override_option('arguments', array(
@@ -415,13 +417,28 @@ function ding_library_views_default_views() {
       'field' => 'status',
       'relationship' => 'none',
     ),
+    'display_name' => array(
+      'operator' => '!=',
+      'value' => '',
+      'group' => '0',
+      'exposed' => FALSE,
+      'expose' => array(
+        'operator' => FALSE,
+        'label' => '',
+      ),
+      'case' => 0,
+      'id' => 'display_name',
+      'table' => 'ding_user',
+      'field' => 'display_name',
+      'relationship' => 'none',
+    ),
   ));
   $handler->override_option('access', array(
     'type' => 'perm',
     'perm' => 'access content',
   ));
   $handler->override_option('cache', array(
-    'type' => 'none',
+    'type' => 'rules',
   ));
   $handler->override_option('title', 'Medarbejdere');
   $handler->override_option('empty_format', '1');

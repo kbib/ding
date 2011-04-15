@@ -1,4 +1,3 @@
-; $Id$
 name = Ding! cart
 description = Provides a shopping cart for reserving books.
 package = Ding!

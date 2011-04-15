@@ -657,6 +657,31 @@ function ding_base_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'htmLawed_format_3';
   $strongarm->value = array(
+    'library' => array(
+      'Body' => array(
+        'default' => 1,
+        'show' => 1,
+        'config' => '\'safe\'=>1, \'elements\'=>\'a, em, strong, cite, code, ol, ul, li, dl, dt, dd\', \'deny_attribute\'=>\'id, style\'',
+        'spec' => '',
+        'help' => 'Tags allowed: a, em, strong, cite, code, ol, ul, li, dl, dt, dd',
+        'save' => 0,
+      ),
+      'Comment' => array(
+        'default' => 1,
+        'show' => 1,
+        'config' => '\'safe\'=>1, \'elements\'=>\'a, em, strong, cite, code, ol, ul, li, dl, dt, dd\', \'deny_attribute\'=>\'id, style\'',
+        'spec' => '',
+        'help' => 'Tags allowed: a, em, strong, cite, code, ol, ul, li, dl, dt, dd',
+        'save' => 0,
+      ),
+      'RSS' => array(
+        'default' => 1,
+        'show' => 0,
+        'config' => '\'safe\'=>1, \'elements\'=>\'a, em, strong, cite, code, ol, ul, li, dl, dt, dd, br, p\', \'deny_attribute\'=>\'id, style\'',
+        'spec' => '',
+        'help' => 'Tags allowed: a, em, strong, cite, code, ol, ul, li, dl, dt, dd, br, p',
+      ),
+    ),
     'article' => array(
       'Body' => array(
         'default' => 1,
@@ -682,7 +707,7 @@ function ding_base_strongarm() {
         'help' => 'Tags allowed: a, em, strong, cite, code, ol, ul, li, dl, dt, dd, br, p',
       ),
     ),
-    'campaign' => array(
+    'topic' => array(
       'Body' => array(
         'default' => 1,
         'show' => 1,
@@ -757,7 +782,7 @@ function ding_base_strongarm() {
         'help' => 'Tags allowed: a, em, strong, cite, code, ol, ul, li, dl, dt, dd, br, p',
       ),
     ),
-    'library' => array(
+    'campaign' => array(
       'Body' => array(
         'default' => 1,
         'show' => 1,
@@ -807,7 +832,7 @@ function ding_base_strongarm() {
         'help' => 'Tags allowed: a, em, strong, cite, code, ol, ul, li, dl, dt, dd, br, p',
       ),
     ),
-    'page' => array(
+    'profile' => array(
       'Body' => array(
         'default' => 1,
         'show' => 1,
@@ -832,11 +857,11 @@ function ding_base_strongarm() {
         'help' => 'Tags allowed: a, em, strong, cite, code, ol, ul, li, dl, dt, dd, br, p',
       ),
     ),
-    'profile' => array(
+    'page' => array(
       'Body' => array(
         'default' => 1,
         'show' => 1,
-        'config' => '\'safe\'=>1, \'elements\'=>\'a, em, strong, cite, code, ol, ul, li, dl, dt, dd\', \'deny_attribute\'=>\'id, style\'',
+        'config' => '\'safe\'=>1, \'elements\'=>\'a, em, strong, cite, code, ol, ul, li, dl, dt, dd\', \'deny_attribute\'=>\'\'',
         'spec' => '',
         'help' => 'Tags allowed: a, em, strong, cite, code, ol, ul, li, dl, dt, dd',
         'save' => 0,
@@ -907,34 +932,9 @@ function ding_base_strongarm() {
         'help' => 'Tags allowed: a, em, strong, cite, code, ol, ul, li, dl, dt, dd, br, p',
       ),
     ),
-    'topic' => array(
-      'Body' => array(
-        'default' => 1,
-        'show' => 1,
-        'config' => '\'safe\'=>1, \'elements\'=>\'a, em, strong, cite, code, ol, ul, li, dl, dt, dd\', \'deny_attribute\'=>\'id, style\'',
-        'spec' => '',
-        'help' => 'Tags allowed: a, em, strong, cite, code, ol, ul, li, dl, dt, dd',
-        'save' => 0,
-      ),
-      'Comment' => array(
-        'default' => 1,
-        'show' => 1,
-        'config' => '\'safe\'=>1, \'elements\'=>\'a, em, strong, cite, code, ol, ul, li, dl, dt, dd\', \'deny_attribute\'=>\'id, style\'',
-        'spec' => '',
-        'help' => 'Tags allowed: a, em, strong, cite, code, ol, ul, li, dl, dt, dd',
-        'save' => 0,
-      ),
-      'RSS' => array(
-        'default' => 1,
-        'show' => 0,
-        'config' => '\'safe\'=>1, \'elements\'=>\'a, em, strong, cite, code, ol, ul, li, dl, dt, dd, br, p\', \'deny_attribute\'=>\'id, style\'',
-        'spec' => '',
-        'help' => 'Tags allowed: a, em, strong, cite, code, ol, ul, li, dl, dt, dd, br, p',
-      ),
-    ),
     'htmLawedDef' => array(
       'Body' => array(
-        'config' => '\'safe\'=>1, \'elements\'=>\'h1, h2, h3, h4, h5, h6, em, strong, code, del, blockquote, q, sub, p, br, pre, ul, ol, li, dl, dt, dd, a, b, u, i, sup, img, table, tbody, td, th, tr\', \'deny_attribute\'=>\'id, style\', \'make_tag_strict\'=>1, \'no_deprecated_attr\'=>1, \'tidy\'=>1, \'valid_xhtml\'=>1',
+        'config' => '\'safe\'=>1, \'elements\'=>\'h1, h2, h3, h4, h5, h6, em, strong, code, del, blockquote, q, sub, p, br, pre, ul, ol, li, dl, dt, dd, a, b, u, i, sup, img, table, tbody, td, th, tr\', \'deny_attribute\'=>\'\', \'make_tag_strict\'=>1, \'no_deprecated_attr\'=>1, \'tidy\'=>1, \'valid_xhtml\'=>1',
         'spec' => '',
         'help' => '',
       ),
@@ -1411,6 +1411,62 @@ function ding_base_strongarm() {
   $strongarm->value = 0;
 
   $export['pathauto_verbose'] = $strongarm;
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'securepages_basepath';
+  $strongarm->value = '';
+
+  $export['securepages_basepath'] = $strongarm;
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'securepages_basepath_ssl';
+  $strongarm->value = '';
+
+  $export['securepages_basepath_ssl'] = $strongarm;
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'securepages_enable';
+  $strongarm->value = '1';
+
+  $export['securepages_enable'] = $strongarm;
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'securepages_ignore';
+  $strongarm->value = '*/autocomplete/*
+*/ajax/*';
+
+  $export['securepages_ignore'] = $strongarm;
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'securepages_pages';
+  $strongarm->value = 'node/add*
+node/*/edit
+user/*
+users/*
+admin*
+profil/*
+medarbejdere/*';
+
+  $export['securepages_pages'] = $strongarm;
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'securepages_secure';
+  $strongarm->value = '1';
+
+  $export['securepages_secure'] = $strongarm;
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'securepages_switch';
+  $strongarm->value = TRUE;
+
+  $export['securepages_switch'] = $strongarm;
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;

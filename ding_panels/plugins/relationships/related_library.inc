@@ -1,4 +1,4 @@
-<?php // $Id$
+<?php
 
 /**
  * @file related_library.inc

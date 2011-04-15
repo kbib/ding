@@ -1,5 +1,4 @@
 <?php
-// $Id$
 
 /**
  * Alma user settings form.

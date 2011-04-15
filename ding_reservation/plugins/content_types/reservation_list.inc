@@ -1,5 +1,4 @@
 <?php
-// $Id$
 
 /**
  * @file reservation_list.inc
@@ -7,7 +6,7 @@
  */
 
 $plugin = array(
-  'title' => t('Library user profile'),
+  'title' => t('Library patron profile'),
 );
 
 /**
@@ -28,7 +27,7 @@ function ding_reservation_reservation_list_content_type_content_types() {
   // Append our default settings to every type.
   foreach ($types as $name => $type) {
     $types[$name] += array(
-      'category' => t('Library user profile'),
+      'category' => t('Library patron profile'),
       'required context' => new ctools_context_required(t('user'), 'user'),
     );
   }

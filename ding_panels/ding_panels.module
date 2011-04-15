@@ -1,5 +1,4 @@
 <?php
-// $Id$
 
 /**
  * @file
@@ -50,7 +49,7 @@ function ding_panels_ctools_plugin_directory($module, $plugin) {
  * Tell panels that our styles are fresh, so it doesn't need to go
  * into legacy mode.
  */
-function  ding_panels_ctools_plugin_api($module, $api) {
+function ding_panels_ctools_plugin_api($module, $api) {
   if ($module == 'panels' && $api == 'styles') {
     return array('version' => 2);
   }

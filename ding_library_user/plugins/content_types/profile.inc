@@ -1,9 +1,7 @@
 <?php
-// $Id$
-
 /**
- * @file relevant.inc
- * Provides several library portal page related panels content types.
+ * @file
+ * Provides several panels content types for the library patron profile.
  */
 
 /**
@@ -14,7 +12,7 @@
  */
 function ding_library_user_profile_ctools_content_types() {
   return array(
-    'title' => t('Library user profile'),
+    'title' => t('Library patron profile'),
   );
 }
 
@@ -40,7 +38,7 @@ function ding_library_user_profile_content_type_content_types() {
   // Append our default settings to every type.
   foreach ($types as $name => $type) {
     $types[$name] += array(
-      'category' => t('Library user profile'),
+      'category' => t('Library patron profile'),
       'required context' => new ctools_context_required(t('user'), 'user'),
     );
   }
@@ -96,11 +94,11 @@ function ding_library_user_profile_content_type_render($subtype, $conf, $panel_a
 function ding_library_user_profile_content_type_admin_title($subtype, $conf, $context) {
   switch($subtype) {
     case 'ding_library_user_library_settings':
-      return t('“@s”: Library settings', array('@s' => $context->identifier));
+      return t('“@s”: library settings', array('@s' => $context->identifier));
     case 'ding_library_user_loan_list':
-      return t('“@s”: Loan list', array('@s' => $context->identifier));
+      return t('“@s”: loan list', array('@s' => $context->identifier));
     case 'ding_library_user_loan_list_form':
-      return t('“@s”: Loan details', array('@s' => $context->identifier));
+      return t('“@s”: loan details', array('@s' => $context->identifier));
   }
 }
 

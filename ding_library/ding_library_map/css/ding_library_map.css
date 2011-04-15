@@ -1,16 +1,34 @@
+/**
+ * @file
+ * CSS styles for rendering the Ding Library Map.
+ */
+
 /* resize button for expanding and contracting map */
 .ding-library-map { position: relative; }
-.ding-library-map .resize { position: absolute; left: 49%; bottom: -13px; display: block; width: 21px; height: 24px; background: url(../img/resize-button.png) no-repeat top left; text-indent: -9999px; }
+.ding-library-map .resize { position: absolute; left: 49%; bottom: -13px; display: block; width: 21px; height: 24px; background: url(../img/resize-button.png) no-repeat top left; text-indent: -9999px; z-index: 1337; }
 .ding-library-map .resize.expand { background-position: left top; }
 .ding-library-map .resize.contract { background-position: left -24px; }
 .ding-library-map .resize,
 .ding-library-map .resize:active { outline: 0 none; }
 
 /* library information box */
-#library-info { position: absolute; width: 174px; padding-bottom: 7px; background-position: left bottom; background-repeat: no-repeat; cursor: pointer; }
+#library-info { 
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  padding-bottom: 7px;
+  position: absolute;
+  width: 174px;
+  z-index: 1337;
+}
+
 #library-info * { font: 10px verdana, sans-serif; }
 #library-info .frame { border: 1px solid #fff; border-width: 1px 1px 0 1px; }
-#library-info .inner { border-width: 4px; border-style: solid; padding: 7px; background: #fff; }
+#library-info .inner { 
+  background: white;
+  border: 4px solid #444;
+  padding: 7px;
+}
 
 #library-info.open { background-image: url(../img/anchor-open.png); }
 #library-info.open .inner { border-color: #3fba27; }

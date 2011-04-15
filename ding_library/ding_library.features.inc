@@ -74,6 +74,164 @@ function ding_library_node_info() {
 function ding_library_rules_defaults() {
   return array(
     'rules' => array(
+      'rules_library_staff_profile_deleted' => array(
+        '#type' => 'rule',
+        '#set' => 'event_node_delete',
+        '#label' => 'library_staff_profile_deleted',
+        '#active' => 1,
+        '#weight' => '0',
+        '#categories' => array(
+          '0' => 'Library',
+          '1' => 'ding_library',
+        ),
+        '#status' => 'default',
+        '#conditions' => array(),
+        '#actions' => array(
+          '0' => array(
+            '#type' => 'action',
+            '#settings' => array(
+              'view' => 'library_staff_list',
+            ),
+            '#name' => 'cache_actions_action_clear_views_cache',
+            '#info' => array(
+              'label' => 'Clear the cache of a library_staff_list view.',
+              'label callback' => FALSE,
+              'arguments' => array(
+                'view' => array(
+                  'type' => 'string',
+                  'label' => 'View',
+                  'description' => 'Specify the view you want to clear.',
+                ),
+              ),
+              'module' => 'Cache Actions',
+            ),
+            '#weight' => 0,
+          ),
+        ),
+        '#version' => 6003,
+      ),
+      'rules_library_staff_profile_saved' => array(
+        '#type' => 'rule',
+        '#set' => 'event_node_insert',
+        '#label' => 'library_staff_profile_saved',
+        '#active' => 1,
+        '#weight' => '0',
+        '#categories' => array(
+          '0' => 'Library',
+          '1' => 'ding_library',
+        ),
+        '#status' => 'default',
+        '#conditions' => array(
+          '0' => array(
+            '#info' => array(
+              'label' => 'Created content is staff profile',
+              'label callback' => FALSE,
+              'arguments' => array(
+                'node' => array(
+                  'type' => 'node',
+                  'label' => 'Content',
+                ),
+              ),
+              'module' => 'Node',
+            ),
+            '#name' => 'rules_condition_content_is_type',
+            '#settings' => array(
+              'type' => array(
+                'profile' => 'profile',
+              ),
+              '#argument map' => array(
+                'node' => 'node',
+              ),
+            ),
+            '#type' => 'condition',
+            '#weight' => 0,
+          ),
+        ),
+        '#actions' => array(
+          '0' => array(
+            '#type' => 'action',
+            '#settings' => array(
+              'view' => 'library_staff_list',
+            ),
+            '#name' => 'cache_actions_action_clear_views_cache',
+            '#info' => array(
+              'label' => 'Clear the cache of a library_staff_list view.',
+              'label callback' => FALSE,
+              'arguments' => array(
+                'view' => array(
+                  'type' => 'string',
+                  'label' => 'View',
+                  'description' => 'Specify the view you want to clear.',
+                ),
+              ),
+              'module' => 'Cache Actions',
+            ),
+            '#weight' => 0,
+          ),
+        ),
+        '#version' => 6003,
+      ),
+      'rules_library_staff_profile_updated' => array(
+        '#type' => 'rule',
+        '#set' => 'event_node_update',
+        '#label' => 'library_staff_profile_updated',
+        '#active' => 1,
+        '#weight' => '0',
+        '#categories' => array(
+          '0' => 'Library',
+          '1' => 'ding_library',
+        ),
+        '#status' => 'default',
+        '#conditions' => array(
+          '0' => array(
+            '#info' => array(
+              'label' => 'Updated content is staff profile',
+              'label callback' => FALSE,
+              'arguments' => array(
+                'node' => array(
+                  'type' => 'node',
+                  'label' => 'Content',
+                ),
+              ),
+              'module' => 'Node',
+            ),
+            '#name' => 'rules_condition_content_is_type',
+            '#settings' => array(
+              'type' => array(
+                'profile' => 'profile',
+              ),
+              '#argument map' => array(
+                'node' => 'node',
+              ),
+            ),
+            '#type' => 'condition',
+            '#weight' => 0,
+          ),
+        ),
+        '#actions' => array(
+          '0' => array(
+            '#type' => 'action',
+            '#settings' => array(
+              'view' => 'library_staff_list',
+            ),
+            '#name' => 'cache_actions_action_clear_views_cache',
+            '#info' => array(
+              'label' => 'Clear the cache of a library_staff_list view.',
+              'label callback' => FALSE,
+              'arguments' => array(
+                'view' => array(
+                  'type' => 'string',
+                  'label' => 'View',
+                  'description' => 'Specify the view you want to clear.',
+                ),
+              ),
+              'module' => 'Cache Actions',
+            ),
+            '#weight' => 0,
+          ),
+        ),
+        '#version' => 6003,
+      ),
       'ding_library_1' => array(
         '#type' => 'rule',
         '#set' => 'event_ding_library_nightly_cron',

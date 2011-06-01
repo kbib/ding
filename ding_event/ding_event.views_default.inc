@@ -61,7 +61,7 @@ function ding_event_views_default_views() {
       ),
       'link_to_node' => 0,
       'label_type' => 'none',
-      'format' => 'default',
+      'format' => 'short',
       'multiple' => array(
         'multiple_number' => '',
         'multiple_from' => '',
@@ -72,7 +72,7 @@ function ding_event_views_default_views() {
         'show_repeat_rule' => '',
       ),
       'fromto' => array(
-        'fromto' => 'both',
+        'fromto' => 'value',
       ),
       'exclude' => 0,
       'id' => 'field_datetime_value',
@@ -431,7 +431,7 @@ function ding_event_views_default_views() {
       ),
       'link_to_node' => 0,
       'label_type' => 'none',
-      'format' => 'default',
+      'format' => 'short',
       'multiple' => array(
         'multiple_number' => '',
         'multiple_from' => '',
@@ -442,7 +442,7 @@ function ding_event_views_default_views() {
         'show_repeat_rule' => '',
       ),
       'fromto' => array(
-        'fromto' => 'both',
+        'fromto' => 'value',
       ),
       'exclude' => 0,
       'id' => 'field_datetime_value',
@@ -894,7 +894,7 @@ function ding_event_views_default_views() {
       ),
       'link_to_node' => 0,
       'label_type' => 'none',
-      'format' => 'default',
+      'format' => 'short',
       'multiple' => array(
         'multiple_number' => '',
         'multiple_from' => '',
@@ -905,7 +905,7 @@ function ding_event_views_default_views() {
         'show_repeat_rule' => '',
       ),
       'fromto' => array(
-        'fromto' => 'both',
+        'fromto' => 'value',
       ),
       'exclude' => 0,
       'id' => 'field_datetime_value',
@@ -1394,7 +1394,7 @@ function ding_event_views_default_views() {
       ),
       'link_to_node' => 0,
       'label_type' => 'none',
-      'format' => 'default',
+      'format' => 'short',
       'multiple' => array(
         'multiple_number' => '',
         'multiple_from' => '',
@@ -1405,7 +1405,7 @@ function ding_event_views_default_views() {
         'show_repeat_rule' => '',
       ),
       'fromto' => array(
-        'fromto' => 'both',
+        'fromto' => 'value',
       ),
       'exclude' => 0,
       'id' => 'field_datetime_value',
@@ -1655,7 +1655,7 @@ function ding_event_views_default_views() {
       ),
       'link_to_node' => 0,
       'label_type' => 'none',
-      'format' => 'default',
+      'format' => 'short',
       'multiple' => array(
         'multiple_number' => '',
         'multiple_from' => '',
@@ -1666,7 +1666,7 @@ function ding_event_views_default_views() {
         'show_repeat_rule' => '',
       ),
       'fromto' => array(
-        'fromto' => 'both',
+        'fromto' => 'value',
       ),
       'exclude' => 0,
       'id' => 'field_datetime_value',

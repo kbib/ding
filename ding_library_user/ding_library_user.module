@@ -486,7 +486,11 @@ function ding_library_user_format_date($datestring, $date_format) {
     $timestamp = strtotime($datestring);
 
     if ($timestamp > 1) {
-      return format_date($timestamp, 'custom', $date_format);
+      // Adjust timezone as the original string didn't have one. This
+      // ensures that it is printed in the same zone as PHP assumes
+      // the string to be in, avoiding shifting the date to a previous
+      // day due to daylight saving time.
+      return format_date($timestamp, 'custom', $date_format, date_offset_get(new DateTime($datestring)));
     }
   }
   return $datestring;

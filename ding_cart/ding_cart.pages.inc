@@ -1,8 +1,5 @@
 <?php
-/**
- * @file
- * Page callbacks for Ding cart module.
- */
+// $Id$
 
 /**
  * Page callback to handle adding stuff to the cart.
@@ -105,4 +102,3 @@ function ding_cart_confirm_form_submit($form, &$form_state) {
   ding_cart_add_ting_object($form_state['values']['object']);
   $form_state['redirect'] = $form_state['values']['dest_url'];
 }
-

@@ -1,3 +1,4 @@
+# $Id$
 #
 # LANGUAGE translation of Drupal (general)
 # Copyright YEAR NAME <EMAIL@ADDRESS>
@@ -12,7 +13,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2011-01-19 14:29+0100\n"
+"POT-Creation-Date: 2010-10-28 13:15+0200\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -21,151 +22,83 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: ding_reservation.module:44
-msgid "Reserve selected"
-msgstr ""
-
-#: ding_reservation.module:56
-msgid "You must select some items."
-msgstr ""
-
-#: ding_reservation.module:72
-msgid "Reservation of “@title” failed. It may be on your reservation list already."
-msgstr ""
-
-#: ding_reservation.module:83
+#: ding_reservation.module:41
 msgid "Reserve now"
 msgstr ""
 
-#: ding_reservation.module:96 ding_reservation.info:0
+#: ding_reservation.module:54 ding_reservation.info:0
 msgid "Ding reservation"
 msgstr ""
 
-#: ding_reservation.module:99
+#: ding_reservation.module:57
 msgid "OK"
 msgstr ""
 
-#: ding_reservation.module:99
+#: ding_reservation.module:57
 msgid "No reservation provider active."
 msgstr ""
 
-#: ding_reservation.module:163
-msgid "reservation cannot be cancelled"
-msgstr ""
-
-#: ding_reservation.module:177
-msgid "Save changes for selected reservations"
-msgstr ""
-
-#: ding_reservation.module:184
-msgid "Delete selected reservations"
-msgstr ""
-
-#: ding_reservation.module:198
-msgid "You must select some reservations."
-msgstr ""
-
-#: ding_reservation.module:229
-msgid "Reservations updated."
-msgstr ""
-
-#: ding_reservation.module:232
-msgid "Could not update reservations."
-msgstr ""
-
-#: ding_reservation.module:235
-msgid "Updated @ok_count reservations, @failed_count failed"
-msgstr ""
-
-#: ding_reservation.module:257
-msgid "Reservations deleted."
-msgstr ""
-
-#: ding_reservation.module:260
-msgid "Could not delete reservations."
-msgstr ""
-
-#: ding_reservation.module:263
-msgid "Deleted @ok_count reservations, @failed_count failed"
-msgstr ""
-
-#: ding_reservation.module:21
+#: ding_reservation.module:19
 msgid "Reserve item"
 msgstr ""
 
-#: ding_reservation.pages.inc:21
-msgid "Reservation added"
+#: ding_reservation.pages.inc:18
+msgid "Success"
 msgstr ""
 
-#: ding_reservation.pages.inc:23
+#: ding_reservation.pages.inc:20
 msgid "You have reserved @item and will be notified when its ready for pickup at @branch."
 msgstr ""
 
-#: ding_reservation.pages.inc:24
+#: ding_reservation.pages.inc:21
 msgid "You have reserved @item and will be notified when its ready for pickup."
 msgstr ""
 
-#: ding_reservation.pages.inc:30
+#: ding_reservation.pages.inc:27
 msgid "Not logged in"
 msgstr ""
 
-#: ding_reservation.pages.inc:31
+#: ding_reservation.pages.inc:28
 msgid "You have to log in to make reservations."
 msgstr ""
 
-#: ding_reservation.pages.inc:36
+#: ding_reservation.pages.inc:33
 msgid "Preferred branch not set"
 msgstr ""
 
-#: ding_reservation.pages.inc:37
+#: ding_reservation.pages.inc:34
 msgid "To make quick reservations, you need to have a preferred branch set. You can set one up at your !profile_settings."
 msgstr ""
 
-#: ding_reservation.pages.inc:38
+#: ding_reservation.pages.inc:35
 msgid "profile settings page"
 msgstr ""
 
-#: ding_reservation.pages.inc:43
-msgid "Not allowed"
-msgstr ""
-
-#: ding_reservation.pages.inc:44
-msgid "Reservation of @item is not allowed."
-msgstr ""
-
-#: ding_reservation.pages.inc:49
-msgid "Not available"
-msgstr ""
-
-#: ding_reservation.pages.inc:50
-msgid "@item is not available for reservation."
-msgstr ""
-
-#: ding_reservation.pages.inc:55
+#: ding_reservation.pages.inc:40
 msgid "Reservation exists"
 msgstr ""
 
-#: ding_reservation.pages.inc:56;77
+#: ding_reservation.pages.inc:41;62
 msgid "@item is already reserved."
 msgstr ""
 
-#: ding_reservation.pages.inc:61
+#: ding_reservation.pages.inc:46
 msgid "Reservation error"
 msgstr ""
 
-#: ding_reservation.pages.inc:62
+#: ding_reservation.pages.inc:47
 msgid "An error occurred while reserving item. Please try again."
 msgstr ""
 
-#: ding_reservation.pages.inc:118
+#: ding_reservation.pages.inc:98
 msgid "Reserve %book immediately?"
 msgstr ""
 
-#: ding_reservation.pages.inc:132
+#: ding_reservation.pages.inc:112
 msgid "@item is now on your reservation list."
 msgstr ""
 
-#: ding_reservation.pages.inc:135
+#: ding_reservation.pages.inc:115
 msgid "Reservation of @item failed."
 msgstr ""
 
@@ -213,11 +146,11 @@ msgstr ""
 msgid "Ding!"
 msgstr ""
 
-#: ding_reservation.theme.inc:14;105
+#: ding_reservation.theme.inc:14;106
 msgid "Select"
 msgstr ""
 
-#: ding_reservation.theme.inc:16;107
+#: ding_reservation.theme.inc:16;108
 msgid "Title"
 msgstr ""
 
@@ -229,39 +162,39 @@ msgstr ""
 msgid "Pickup by"
 msgstr ""
 
-#: ding_reservation.theme.inc:19;110
+#: ding_reservation.theme.inc:19;111
 msgid "Pickup branch"
 msgstr ""
 
-#: ding_reservation.theme.inc:79;176
+#: ding_reservation.theme.inc:80;177
 msgid "Res. no @num"
 msgstr ""
 
-#: ding_reservation.theme.inc:94;191
+#: ding_reservation.theme.inc:95;192
 msgid "Unknown"
 msgstr ""
 
-#: ding_reservation.theme.inc:100
+#: ding_reservation.theme.inc:101
 msgid "Reservations ready for pickup"
 msgstr ""
 
-#: ding_reservation.theme.inc:108
+#: ding_reservation.theme.inc:109
 msgid "Reserved"
 msgstr ""
 
-#: ding_reservation.theme.inc:109
+#: ding_reservation.theme.inc:110
 msgid "Valid to"
 msgstr ""
 
-#: ding_reservation.theme.inc:111
+#: ding_reservation.theme.inc:112
 msgid "Queue number"
 msgstr ""
 
-#: ding_reservation.theme.inc:205
+#: ding_reservation.theme.inc:206
 msgid "Active reservations"
 msgstr ""
 
-#: ding_reservation.theme.inc:209
+#: ding_reservation.theme.inc:210
 msgid "No reservations found."
 msgstr ""
 

@@ -1,4 +1,4 @@
-<?php
+<?php // $Id$
 ?>
 
 <?php print $user->picture; ?>

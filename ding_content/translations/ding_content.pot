@@ -1,8 +1,8 @@
+# $Id$
 #
 # LANGUAGE translation of Drupal (general)
 # Copyright YEAR NAME <EMAIL@ADDRESS>
 # Generated from files:
-#  ding_content.admin.inc: n/a
 #  ding_content.info: n/a
 #  ding_content.features.content.inc: n/a
 #  ding_content.features.inc: n/a
@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2011-01-19 14:29+0100\n"
+"POT-Creation-Date: 2010-10-28 13:15+0200\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -20,14 +20,6 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
-
-#: ding_content.admin.inc:24
-msgid "Similar terms vocabulary"
-msgstr ""
-
-#: ding_content.admin.inc:25
-msgid "Select which vocabulary to use when determining related content"
-msgstr ""
 
 #: ding_content.info:0
 msgid "Ding! content"
@@ -105,19 +97,19 @@ msgstr ""
 msgid "Vedhæftede filer"
 msgstr ""
 
-#: ding_content.module:53
+#: ding_content.module:45
 msgid "Revision information"
 msgstr ""
 
-#: ding_content.module:61
+#: ding_content.module:53
 msgid "Create new revision"
 msgstr ""
 
-#: ding_content.module:66
+#: ding_content.module:58
 msgid "Log message"
 msgstr ""
 
-#: ding_content.module:69
+#: ding_content.module:61
 msgid "An explanation of the additions or updates being made to help other authors understand your motivations."
 msgstr ""
 
@@ -129,8 +121,8 @@ msgstr ""
 msgid "Blog post"
 msgstr ""
 
-#: ding_content.features.inc:47
-msgid "A library blog post."
+#: ding_content.features.inc:47;113
+msgid "A staff profile with description, profile picture, and tags."
 msgstr ""
 
 #: ding_content.features.inc:49;60;71;115;126
@@ -145,16 +137,12 @@ msgstr ""
 msgid "Event"
 msgstr ""
 
-#: ding_content.features.inc:58
+#: ding_content.features.inc:58;69
 msgid "An event, usually related to a library."
 msgstr ""
 
 #: ding_content.features.inc:67
 msgid "Facility/service"
-msgstr ""
-
-#: ding_content.features.inc:69
-msgid "A facility/service related to a library."
 msgstr ""
 
 #: ding_content.features.inc:80
@@ -179,10 +167,6 @@ msgstr ""
 
 #: ding_content.features.inc:111
 msgid "Staff profile"
-msgstr ""
-
-#: ding_content.features.inc:113
-msgid "A staff profile with description, profile picture, and tags."
 msgstr ""
 
 #: ding_content.features.inc:122

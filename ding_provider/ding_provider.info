@@ -1,3 +1,4 @@
+; $Id$
 name = Ding! provider
 description = Provides uniform interface to backend providers.
 package = Ding!

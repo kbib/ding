@@ -1,16 +1,16 @@
+# $Id$
 #
 # LANGUAGE translation of Drupal (general)
 # Copyright YEAR NAME <EMAIL@ADDRESS>
 # Generated from files:
 #  ding_base.module: n/a
 #  ding_base.info: n/a
-#  ding_base.install: n/a
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2011-01-19 14:29+0100\n"
+"POT-Creation-Date: 2010-10-28 13:14+0200\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -19,51 +19,39 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: ding_base.module:40
+#: ding_base.module:31
 msgid "Date only (short)"
 msgstr ""
 
-#: ding_base.module:110
+#: ding_base.module:101
 msgid "Phone number must be 8 digits."
 msgstr ""
 
-#: ding_base.module:124
+#: ding_base.module:115
 msgid "Valid positive number required."
 msgstr ""
 
-#: ding_base.module:137
+#: ding_base.module:128
 msgid "Invalid date"
 msgstr ""
 
-#: ding_base.module:142
+#: ding_base.module:133
 msgid "Date must be later than today."
 msgstr ""
 
-#: ding_base.module:156
-msgid "No active ding modules have any settings."
-msgstr ""
-
-#: ding_base.module:169
+#: ding_base.module:146
 msgid "Reset filters to Ding defaults?"
 msgstr ""
 
-#: ding_base.module:170
+#: ding_base.module:147
 msgid "This will reset the %filter_1, %filter_2 and %filter_3 formats and the WYSIWYG setup associated with %filter_3 filter to default values."
 msgstr ""
 
-#: ding_base.module:172
+#: ding_base.module:149
 msgid "Reset"
 msgstr ""
 
-#: ding_base.module:16 ding_base.info:0
-msgid "Ding!"
-msgstr ""
-
-#: ding_base.module:17
-msgid "Manage Ding! settings."
-msgstr ""
-
-#: ding_base.module:25
+#: ding_base.module:16
 msgid "Ding reset"
 msgstr ""
 
@@ -75,11 +63,7 @@ msgstr ""
 msgid "Base module providing configuration, formats and APIs used across all Ding module."
 msgstr ""
 
-#: ding_base.install:68
-msgid "Enabled new modules"
-msgstr ""
-
-#: ding_base.install:95
-msgid "Enabled trampoline module"
+#: ding_base.info:0
+msgid "Ding!"
 msgstr ""
 

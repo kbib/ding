@@ -1,4 +1,5 @@
 <?php
+// $Id$
 
 /**
  * @file ding_event_similar_events.tpl.php

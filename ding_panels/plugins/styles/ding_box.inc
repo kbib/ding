@@ -1,4 +1,5 @@
 <?php
+// $Id$
 
 /**
  * @file ding_box.inc

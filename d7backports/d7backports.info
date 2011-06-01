@@ -1,3 +1,4 @@
+; $Id$
 name = Drupal 7 backports
 description = Contains several API functions from Drupal 7 backported to Drupal 6. Use this to help ensure forward compatibility, and remember to remove this module before attempting an update to Drupal 7.
 php = 5.2

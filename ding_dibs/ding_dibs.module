@@ -1,9 +1,17 @@
 <?php
+// $Id$
 
 /**
  * @file
  * Ding DIBS integration.
  */
+
+/**
+ * Implementation of hook_form_FORM_ID_alter().
+ */
+function ding_dibs_form_user_forms_debts_details_alter(&$form, &$form_state) {
+  $form['#submit'][] ='ding_dibs_forms_debts_details_submit';
+}
 
 /**
  * Implementation of hook_dibsapi().

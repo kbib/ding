@@ -1,4 +1,5 @@
 <?php
+// $Id$
 
 /**
  * @file panels-threecol-left-stacked-right.tpl.php

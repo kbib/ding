@@ -18,22 +18,7 @@ function ding_cart_default_page_manager_pages() {
   $page->admin_title = 'User cart page';
   $page->admin_description = '';
   $page->path = 'user/%user/cart';
-  $page->access = array(
-    'plugins' => array(
-      0 => array(
-        'name' => 'compare_users',
-        'settings' => array(
-          'equality' => '1',
-        ),
-        'context' => array(
-          0 => 'logged-in-user',
-          1 => 'argument_uid_1',
-        ),
-        'not' => FALSE,
-      ),
-    ),
-    'logic' => 'and',
-  );
+  $page->access = array();
   $page->menu = array();
   $page->arguments = array(
     'user' => array(

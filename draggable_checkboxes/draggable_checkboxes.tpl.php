@@ -1,4 +1,4 @@
-<?php
+<?php // $Id$
 
 /**
  * @file draggable_checkboxes_element.tpl.php
@@ -13,10 +13,10 @@
  */
 ?>
 <table id="<?php print $table_id; ?>" class="draggable-checkboxes">
-  <?php if ($title): ?>
-    <thead><tr><th colspan="2"><?php print $title; ?></th></tr></thead>
-  <?php endif; ?>
   <tbody>
+    <?php if ($title): ?>
+      <thead><tr><th colspan="2"><?php print $title; ?></th></tr></thead>
+    <?php endif; ?>
     <?php foreach($checkboxes as $nid => $checkbox): ?>
       <tr class="draggable node-<?php print $nid; ?>">
         <?php print $checkbox; ?>

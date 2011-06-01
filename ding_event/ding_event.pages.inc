@@ -1,4 +1,5 @@
 <?php
+// $Id$
 
 /**
  * Generate custom XML feed for exporting events to KultuNaut.

@@ -1,4 +1,5 @@
 <?php
+// $Id$
 
 /**
  * @file node_body.inc

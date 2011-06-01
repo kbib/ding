@@ -1,4 +1,5 @@
 <?php
+// $Id$
 
 /**
  * Theming of reservation detailed list form.
@@ -189,20 +190,15 @@ function theme_ding_reservation_list_form($form) {
         'class' => 'pickup_branch',
         'data' => $item['pickup_branch'] ? $item['pickup_branch'] : t('Unknown'),
       );
-      
+
       $cells['queue_number'] = array(
         'class' => 'queue_no',
-        'data' => (!isset($item['remote_reservation']) || !$item['remote_reservation']) ? $item['queue_number'] : '<abbr title="'.t('Queue number is not supported for remote reservations').'">-</abbr>',
+        'data' => $item['queue_number'],
       );
 
-      $classes = 'active-reservations';
-      if (isset($item['remote_reservation']) && $item['remote_reservation']) {
-        $classes .= ' remote-reservations';
-      }
-      
       $rows[] = array(
         'data' => $cells,
-        'class' => $classes,
+        'class' => 'active-reservations',
       );
     }
 

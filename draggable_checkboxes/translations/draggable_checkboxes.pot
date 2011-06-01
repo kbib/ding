@@ -1,15 +1,14 @@
+# $Id$
 #
 # LANGUAGE translation of Drupal (general)
 # Copyright YEAR NAME <EMAIL@ADDRESS>
-# Generated from files:
-#  draggable_checkboxes.module: n/a
-#  draggable_checkboxes.info: n/a
+# Generated from file: draggable_checkboxes.info: n/a
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2011-01-19 14:29+0100\n"
+"POT-Creation-Date: 2010-10-28 13:14+0200\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -17,10 +16,6 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
-
-#: draggable_checkboxes.module:92
-msgid "!title: !required"
-msgstr ""
 
 #: draggable_checkboxes.info:0
 msgid "Draggable checkboxes"

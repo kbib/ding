@@ -1,8 +1,4 @@
 <?php
-/**
- * @file
- * Bridge module, handling reservations for other modules.
- */
 
 // Default interest period is ~six months.
 define('DING_RESERVATION_DEFAULT_INTEREST_PERIOD', 183);
@@ -53,7 +49,7 @@ function ding_reservation_form_ding_cart_list_form_alter(&$form, $form_state) {
 }
 
 /**
- * Cart form reservation validate handler.
+ * Form validate handler.
  */
 function ding_reservation_ding_cart_list_form_validate($form, &$form_state) {
   if (empty($form_state['values']['selected'])) {
@@ -62,45 +58,19 @@ function ding_reservation_ding_cart_list_form_validate($form, &$form_state) {
 }
 
 /**
- * Cart form reservation submit handler.
+ * Form submit handler.
  */
 function ding_reservation_ding_cart_list_form_reserve($form, &$form_state) {
   foreach (array_filter($form_state['values']['selected']) as $local_id) {
     $reservation = ding_provider_invoke('reservation', 'create', $form_state['values']['account'], $local_id, $form_state['values']['options'] ? $form_state['values']['options'] : array());
 
-    // Parameter for the title to the t() function. Defined as a 
-    // variable to avoid having to define it in all the different 
-    // invocations below.
-    $t_param = array('@title' => $form['cart']['#value'][$local_id]['title']);
-
-    if (is_array($reservation) && isset($reservation['status'])) {
-      switch ($reservation['status']) {
-        case DING_RESERVATION_SUCCESS:
-          drupal_set_message(t('Reservation of “@title” successful.', $t_param));
-          // If reservation was successful, remove the item from the cart.
-          ding_cart_remove_item($form_state['values']['account'], $local_id);
-          return;
-        case DING_PROVIDER_AUTH_BLOCKED:
-          drupal_set_message(t('Reservation of “@title” failed: Your account is blocked.', $t_param), 'error');
-          return;
-        case DING_RESERVATION_ERROR_NOT_ALLOWED:
-          drupal_set_message(t('Reservation of “@title” failed: Reservation not allowed.', $t_param), 'error');
-          return;
-        case DING_RESERVATION_ERROR_NOT_AVAILABLE:
-          drupal_set_message(t('Reservation of “@title” failed: Not available for reservation.', $t_param), 'error');
-          // If reservation is impossible, remove the item from the cart.
-          ding_cart_remove_item($form_state['values']['account'], $local_id);
-        case DING_RESERVATION_ERROR_RESERVATION_EXISTS:
-          drupal_set_message(t('“@title” is already on your reservation list, and has been removed from your cart.', $t_param), 'warning');
-          // If reservation is already made, remove the item from the cart.
-          ding_cart_remove_item($form_state['values']['account'], $local_id);
-          return;
-      }
+    // If reservation was successful, remove the item from the cart.
+    if ($reservation && ($reservation !== DING_PROVIDER_AUTH_REQUIRED)) {
+      ding_cart_remove_item($form_state['values']['account'], $local_id);
     }
-
-    // If none of the cases above apply (and thus return the function, 
-    // skipping this part, provide a generic error message.
-    drupal_set_message(t('Reservation of “@title” failed. Please try again later, and contact technical support if the problem persists.', $t_param), 'error');
+    else {
+      drupal_set_message(t('Reservation of “@title” failed. It may be on your reservation list already.', array('@title' => $form['cart']['#value'][$local_id]['title'])), 'error');
+    }
   }
 }
 
@@ -238,20 +208,11 @@ function ding_reservation_list_form_update($form, &$form_state) {
 
   $result = ding_provider_invoke('reservation', 'update', $form_state['values']['account'], $reservation_ids, $form_state['values']['options']);
   foreach ($result as $reservation_id => $success) {
-    if (is_string($success)) {
-      $error_messages[] = $success;
-    }
-    elseif ($success) {
+    if ($success) {
       $successes[] = $reservation_id;
     }
     else {
       $failures[] = $reservation_id;
-    }
-  }
-
-  if (!empty($error_messages)) {
-    foreach ($error_messages as $message) {
-      drupal_set_message($message, 'warning');
     }
   }
 
@@ -261,8 +222,8 @@ function ding_reservation_list_form_update($form, &$form_state) {
   elseif ($failures && !$successes) {
     drupal_set_message(t('Could not update reservations.', 'error'));
   }
-  elseif (empty($error_messages)) {
-    drupal_set_message(t('Updated @ok_count reservations, @failed_count failed', array('@ok_count' => sizeof($successes), '@failed_count' => sizeof($failures))), 'warning');
+  else {
+    drupal_set_message(t('Updated @ok_count reservations, @failed_count failed', array('@ok_count' => sizeof($successes), '@failed_count' => sizeof($failures))), 'error');
   }
 }
 

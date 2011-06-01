@@ -1,3 +1,4 @@
+; $Id$
 name = Ding library user
 description = Uses an external library system to handle user logins and display user data.
 package = Ding!

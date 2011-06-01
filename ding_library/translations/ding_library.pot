@@ -1,3 +1,4 @@
+# $Id$
 #
 # LANGUAGE translation of Drupal (general)
 # Copyright YEAR NAME <EMAIL@ADDRESS>
@@ -13,7 +14,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2011-01-19 14:29+0100\n"
+"POT-Creation-Date: 2010-10-28 13:15+0200\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -58,91 +59,83 @@ msgstr ""
 msgid "Here you can edit the identifying part of a library's URL, called “slugs”. Be aware that changing the existing slugs will URLs to change, resulting in dead links."
 msgstr ""
 
-#: ding_library.module:108;16
+#: ding_library.module:111;16
 msgid "Library settings"
 msgstr ""
 
-#: ding_library.module:116
+#: ding_library.module:119
 msgid "Library type"
 msgstr ""
 
-#: ding_library.module:118
+#: ding_library.module:121
 msgid "Normal library page"
 msgstr ""
 
-#: ding_library.module:119
+#: ding_library.module:122
 msgid "Portal-style library page"
 msgstr ""
 
-#: ding_library.module:121
+#: ding_library.module:124
 msgid "Normal library pages has a blog section, events, and similar, while portal-style library pages have only a hierarchial menu with content."
 msgstr ""
 
-#: ding_library.module:127
+#: ding_library.module:130
 msgid "Show library on map"
 msgstr ""
 
-#: ding_library.module:135
+#: ding_library.module:138
 msgid "DDELibra branch"
 msgstr ""
 
-#: ding_library.module:255
+#: ding_library.module:319
 msgid "When Ding! library nightly cron runs"
 msgstr ""
 
-#: ding_library.module:268
+#: ding_library.module:332
 msgid "Ding! Library"
 msgstr ""
 
-#: ding_library.module:269
+#: ding_library.module:333
 msgid "Loads a Ding! Library based on its slug"
 msgstr ""
 
-#: ding_library.module:284
-msgid "Ding Library"
-msgstr ""
-
-#: ding_library.module:286
-msgid "Ding provider module not enabled."
-msgstr ""
-
-#: ding_library.module:293
+#: ding_library.module:349
 msgid "Ding branch"
 msgstr ""
 
-#: ding_library.module:296
+#: ding_library.module:352
 msgid "OK"
 msgstr ""
 
-#: ding_library.module:296
+#: ding_library.module:352
 msgid "No branch provider active."
 msgstr ""
 
-#: ding_library.module:316
+#: ding_library.module:371
 msgid "Navigation menu for %library."
 msgstr ""
 
-#: ding_library.module:338
+#: ding_library.module:393
 msgid "Slug for the current library node"
 msgstr ""
 
-#: ding_library.module:339
+#: ding_library.module:394
 msgid "Slug for the library node this content is associated with."
 msgstr ""
 
-#: ding_library.module:341
+#: ding_library.module:396
 msgid "Node author display name"
 msgstr ""
 
-#: ding_library.module:342
+#: ding_library.module:397
 msgid "Node author display name (unfiltered)"
 msgstr ""
 
-#: ding_library.module:346
+#: ding_library.module:401
 msgid "User display name"
 msgstr ""
 
-#: ding_library.module:347
+#: ding_library.module:402
 msgid "User display name (unfiltered)"
 msgstr ""
 

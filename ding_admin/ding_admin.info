@@ -1,3 +1,4 @@
+; $Id$
 name = Ding! admin
 description = Tweaks and overrides for the admin interface.
 package = Ding!

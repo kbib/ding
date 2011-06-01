@@ -1,4 +1,5 @@
 <?php
+// $Id$
 
 /**
  * Theming of booking detailed list form.

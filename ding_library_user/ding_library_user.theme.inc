@@ -1,4 +1,5 @@
 <?php
+// $Id$
 
 /**
  * Theming of a records list.
@@ -100,10 +101,6 @@ function theme_ding_library_user_loan_list_form($form) {
         'data' => theme('ding_library_user_list_item', 'loan', $loan),
       );
 
-      if (isset($form['loans'][$loan_id]['#renewed'])) {
-        $cells['title']['data'] .= '<span class="renewal-status ' . $form['loans'][$loan_id]['#renewed'] . '">' . $form['loans'][$loan_id]['#renewed_text'] . '</span>';
-      }
-
       $cells['loan_date'] = array(
         'class' => 'loan_date',
         'data' => ding_library_user_format_date($loan['loan_date'], $date_format),
@@ -116,7 +113,7 @@ function theme_ding_library_user_loan_list_form($form) {
 
       $rows[] = array(
         'data' => $cells,
-        'class' => (($checkbox) ? 'selectable' : 'immutable'),
+        'class' => ($checkbox) ? 'selectable' : 'immutable',
       );
     }
 
@@ -124,7 +121,6 @@ function theme_ding_library_user_loan_list_form($form) {
       $output .= theme('table', $header, $rows, array('colgroups' => $colgroups), $table_title);
     }
   }
-
   if (empty($output)) {
     return t('No loans found.');
   }
@@ -151,7 +147,7 @@ function template_preprocess_ding_library_user_list_item(&$vars) {
    */
   if (ding_provider_supports($vars['provider_type'], 'details')) {
     $item = ding_provider_invoke($vars['provider_type'], 'details', $vars['item']);
-    $vars['item'] = $item;
+  $vars['item'] = $item;
   }
   else {
     $item = $vars['item'];
@@ -159,16 +155,13 @@ function template_preprocess_ding_library_user_list_item(&$vars) {
 
   if ($item['ting_object']) {
     $object = $item['ting_object'];
-    //Fall back to object title if no title is specified
-    $vars['title'] = $vars['title_plain'] = ($item['title']) ? check_plain($item['title']) : check_plain($object->title);
+    $vars['title'] = $vars['title_plain'] = check_plain($object->title);
 
     if ($object->url) {
       $vars['url'] = $object->url;
-      $vars['title'] = l($vars['title'], $object->url);
+      $vars['title'] = l($object->title, $object->url);
     }
-    
-    //Fall back to object authors if no authors are specified
-    $vars['authors'] = ($item['authors']) ? check_plain($item['authors']) : (($object->creators_string) ? check_plain($object->creators_string) : '');
+    $vars['authors'] = $object->creators_string ? check_plain($object->creators_string) : '';
     $image_url = ting_covers_object_url($object, '80_x');
     $vars['image'] = $image_url ? theme('image', $image_url, '', '', NULL, FALSE) : '';
     $vars['type'] = $object->type ? check_plain($object->type) : '';

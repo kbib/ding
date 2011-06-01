@@ -1,4 +1,5 @@
 <?php
+// $Id$
 
 /**
  * @file
@@ -183,23 +184,23 @@ function ding_user_default_page_manager_handlers() {
     'relationships' => array(),
     'access' => array(
       'plugins' => array(
-        0 => array(
+        '0' => array(
           'name' => 'role',
           'settings' => array(
             'rids' => array(
-              0 => 2,
+              '0' => 2,
             ),
           ),
           'context' => 'argument_uid_1',
         ),
-        1 => array(
+        '1' => array(
           'name' => 'compare_users',
           'settings' => array(
             'equality' => '1',
           ),
           'context' => array(
-            0 => 'argument_uid_1',
-            1 => 'logged-in-user',
+            '0' => 'argument_uid_1',
+            '1' => 'logged-in-user',
           ),
         ),
       ),
@@ -209,63 +210,35 @@ function ding_user_default_page_manager_handlers() {
   $display = new panels_display;
   $display->layout = 'twocol_left_stacked';
   $display->layout_settings = array();
-  $display->panel_settings = array(
-    'style_settings' => array(
-      'default' => NULL,
-      'top' => NULL,
-      'left' => NULL,
-      'right' => NULL,
-      'bottom' => NULL,
-    ),
-  );
+  $display->panel_settings = array();
   $display->cache = array();
   $display->title = '';
   $display->content = array();
   $display->panels = array();
-    $pane = new stdClass;
-    $pane->pid = 'new-1';
-    $pane->panel = 'left';
-    $pane->type = 'user_profile';
-    $pane->subtype = 'user_profile';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'context' => 'argument_uid_1',
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $display->content['new-1'] = $pane;
+  $pane = new stdClass;
+  $pane->api_version = 1;
+  $pane->pid = 'new-1';
+  $pane->panel = 'left';
+  $pane->type = 'user_profile';
+  $pane->subtype = 'user_profile';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'context' => 'argument_uid_1',
+    'override_title' => 1,
+    'override_title_text' => '',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 0;
+  $display->content['new-1'] = $pane;
     $display->panels['left'][0] = 'new-1';
     $pane = new stdClass;
     $pane->pid = 'new-2';
-    $pane->panel = 'left';
-    $pane->type = 'personal_info';
-    $pane->subtype = 'personal_info';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'context' => 'argument_uid_1',
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 1;
-    $display->content['new-2'] = $pane;
-    $display->panels['left'][1] = 'new-2';
-    $pane = new stdClass;
-    $pane->pid = 'new-3';
     $pane->panel = 'left';
     $pane->type = 'profile';
     $pane->subtype = 'ding_library_user_library_settings';
@@ -277,16 +250,14 @@ function ding_user_default_page_manager_handlers() {
       'override_title_text' => '',
     );
     $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
+    $pane->style = array();
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 2;
-    $display->content['new-3'] = $pane;
-    $display->panels['left'][2] = 'new-3';
+    $pane->position = 1;
+    $display->content['new-2'] = $pane;
+    $display->panels['left'][1] = 'new-2';
     $pane = new stdClass;
-    $pane->pid = 'new-4';
+    $pane->pid = 'new-3';
     $pane->panel = 'right';
     $pane->type = 'relevant';
     $pane->subtype = 'relevant';
@@ -295,24 +266,22 @@ function ding_user_default_page_manager_handlers() {
     $pane->configuration = array(
       'campaign_count' => 3,
       'context' => array(
-        0 => 'empty',
-        1 => 'empty',
-        2 => 'empty',
+        '0' => 'empty',
+        '1' => 'empty',
+        '2' => 'empty',
       ),
       'override_title' => 0,
       'override_title_text' => '',
     );
     $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
+    $pane->style = array();
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
-    $display->content['new-4'] = $pane;
-    $display->panels['right'][0] = 'new-4';
+    $display->content['new-3'] = $pane;
+    $display->panels['right'][0] = 'new-3';
   $display->hide_title = PANELS_TITLE_NONE;
-  $display->title_pane = '0';
+  $display->title_pane = 'new-1';
   $handler->conf['display'] = $display;
   $handlers['user_view_panel_context_3'] = $handler;
 

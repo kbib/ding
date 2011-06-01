@@ -1,3 +1,4 @@
+# $Id$
 #
 # LANGUAGE translation of Drupal (general)
 # Copyright YEAR NAME <EMAIL@ADDRESS>
@@ -17,7 +18,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2011-01-19 14:29+0100\n"
+"POT-Creation-Date: 2010-10-28 13:14+0200\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -26,11 +27,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: ding-library-user-list-item.tpl.php:24
+#: ding-library-user-list-item.tpl.php:29
 msgid "by"
 msgstr ""
 
 #: ding-library-user-list-item.tpl.php:36
+msgid "remote loan"
+msgstr ""
+
+#: ding-library-user-list-item.tpl.php:39
 msgid "Mat. no @num"
 msgstr ""
 
@@ -50,63 +55,55 @@ msgstr ""
 msgid "E-mail address"
 msgstr ""
 
-#: ding_library_user.theme.inc:39
+#: ding_library_user.theme.inc:27
 msgid "Select"
 msgstr ""
 
-#: ding_library_user.theme.inc:39
+#: ding_library_user.theme.inc:27
 msgid "Title"
 msgstr ""
 
-#: ding_library_user.theme.inc:39
+#: ding_library_user.theme.inc:27
 msgid "Loan date"
 msgstr ""
 
-#: ding_library_user.theme.inc:39
+#: ding_library_user.theme.inc:27
 msgid "Due date"
 msgstr ""
 
-#: ding_library_user.theme.inc:72
+#: ding_library_user.theme.inc:60
 msgid "Overdue loans"
 msgstr ""
 
-#: ding_library_user.theme.inc:77
+#: ding_library_user.theme.inc:65
 msgid "Due today"
 msgstr ""
 
-#: ding_library_user.theme.inc:80
+#: ding_library_user.theme.inc:68
 msgid "Due in @count days, @date"
 msgstr ""
 
-#: ding_library_user.theme.inc:125
+#: ding_library_user.theme.inc:113
 msgid "No loans found."
 msgstr ""
 
-#: ding_library_user.theme.inc:171
+#: ding_library_user.theme.inc:159
 msgid "Title not available."
 msgstr ""
 
-#: ding_library_user.theme.inc:185
-msgid "remote loan"
-msgstr ""
-
-#: ding_library_user.theme.inc:188
-msgid "remote reservation"
-msgstr ""
-
-#: ding_library_user.theme.inc:213
+#: ding_library_user.theme.inc:198
 msgid "Edit contact information"
 msgstr ""
 
-#: ding_library_user.theme.inc:216
+#: ding_library_user.theme.inc:199
 msgid "Change PIN code"
 msgstr ""
 
-#: ding_library_user.theme.inc:253
+#: ding_library_user.theme.inc:235
 msgid "Please !log_in to view your loaner status"
 msgstr ""
 
-#: ding_library_user.theme.inc:253
+#: ding_library_user.theme.inc:235
 msgid "log in"
 msgstr ""
 
@@ -182,23 +179,23 @@ msgstr ""
 msgid "Ding!"
 msgstr ""
 
-#: ding_library_user_status_block.tpl.php:28
+#: ding_library_user_status_block.tpl.php:31
 msgid "log out"
 msgstr ""
 
-#: ding_library_user_status_block.tpl.php:31
+#: ding_library_user_status_block.tpl.php:34
 msgid "Welcome"
 msgstr ""
 
-#: ding_library_user_status_block.tpl.php:41
+#: ding_library_user_status_block.tpl.php:44
 msgid "Go to cart"
 msgstr ""
 
-#: ding_library_user_status_block.tpl.php:49
+#: ding_library_user_status_block.tpl.php:52
 msgid "Loans"
 msgstr ""
 
-#: ding_library_user_status_block.tpl.php:57
+#: ding_library_user_status_block.tpl.php:60
 msgid "Reservations"
 msgstr ""
 
@@ -262,19 +259,19 @@ msgstr ""
 msgid "Your profile"
 msgstr ""
 
-#: ding_library_user.module:223
+#: ding_library_user.module:222
 msgid "Allow cancellation of reservations ready for pickup?"
 msgstr ""
 
-#: ding_library_user.module:224
+#: ding_library_user.module:223
 msgid "If enabled, this will allow users that have reservations ready for pick-up to cancel those reservations. It does not affect reservations that are not ready for pick-up."
 msgstr ""
 
-#: ding_library_user.module:263;294 ding_library_user.forms.inc:69
+#: ding_library_user.module:262;296 ding_library_user.forms.inc:69
 msgid "ding_library_user"
 msgstr ""
 
-#: ding_library_user.module:263;294 ding_library_user.forms.inc:69
+#: ding_library_user.module:262;296 ding_library_user.forms.inc:69
 msgid "Provider returned invalid result: @res"
 msgstr ""
 
@@ -322,57 +319,45 @@ msgstr ""
 msgid "Save new password"
 msgstr ""
 
-#: ding_library_user.forms.inc:167
+#: ding_library_user.forms.inc:157
 msgid "Please provide your current password."
 msgstr ""
 
-#: ding_library_user.forms.inc:171
+#: ding_library_user.forms.inc:161
 msgid "The new password must be different than the current password."
 msgstr ""
 
-#: ding_library_user.forms.inc:175
+#: ding_library_user.forms.inc:165
 msgid "Please input your new password twice for confirmation."
 msgstr ""
 
-#: ding_library_user.forms.inc:179
+#: ding_library_user.forms.inc:169
 msgid "The new password must be @num numerical digits."
 msgstr ""
 
-#: ding_library_user.forms.inc:198
-msgid "You need to be logged in to change password."
-msgstr ""
-
-#: ding_library_user.forms.inc:201
-msgid "There was a problem changing your password, please contact your library."
-msgstr ""
-
-#: ding_library_user.forms.inc:239
-msgid "Unable to renew loan"
-msgstr ""
-
-#: ding_library_user.forms.inc:250
+#: ding_library_user.forms.inc:229
 msgid "Renew selected"
 msgstr ""
 
-#: ding_library_user.forms.inc:255
+#: ding_library_user.forms.inc:234
 msgid "Renew all"
 msgstr ""
 
-#: ding_library_user.forms.inc:314
+#: ding_library_user.forms.inc:293
 msgid "Materials renewed"
 msgstr ""
 
-#: ding_library_user.forms.inc:321
+#: ding_library_user.forms.inc:300
 msgid "Error renewing materials"
 msgstr ""
 
-#: ding_library_user.forms.inc:306
+#: ding_library_user.forms.inc:285
 msgid "@message"
 msgid_plural "@count materials: @message"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ding_library_user.forms.inc:309
+#: ding_library_user.forms.inc:288
 msgid "Renewed 1 material."
 msgid_plural "Renewed @count materials."
 msgstr[0] ""

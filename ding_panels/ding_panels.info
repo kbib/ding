@@ -1,3 +1,4 @@
+; $Id$
 name = Ding! Panels
 description = Provides Panels plug-ins. Content types, layouts, etc.
 package = Ding!

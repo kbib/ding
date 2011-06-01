@@ -1,3 +1,4 @@
+// $Id$
 
 /**
  * Javascript helpers for Ding cart interaction buttons.

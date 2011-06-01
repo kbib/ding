@@ -1,3 +1,4 @@
+# $Id$
 #
 # LANGUAGE translation of Drupal (general)
 # Copyright YEAR NAME <EMAIL@ADDRESS>
@@ -12,7 +13,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2011-01-19 14:29+0100\n"
+"POT-Creation-Date: 2010-10-28 13:15+0200\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -41,11 +42,11 @@ msgstr ""
 msgid "Provides a display of similar events."
 msgstr ""
 
-#: plugins/content_types/similar_events.inc:58
+#: plugins/content_types/similar_events.inc:55
 msgid "\"@s\" similar events"
 msgstr ""
 
-#: plugins/content_types/categories.inc:17;65
+#: plugins/content_types/categories.inc:17;66
 msgid "Event categories"
 msgstr ""
 
@@ -57,15 +58,15 @@ msgstr ""
 msgid "Ting"
 msgstr ""
 
-#: plugins/content_types/categories.inc:47
+#: plugins/content_types/categories.inc:48
 msgid "All"
 msgstr ""
 
-#: plugins/content_types/categories.inc:82
+#: plugins/content_types/categories.inc:83
 msgid "Vocabulary"
 msgstr ""
 
-#: plugins/content_types/categories.inc:83
+#: plugins/content_types/categories.inc:84
 msgid "Select the vocabulary used for event categories."
 msgstr ""
 
@@ -74,7 +75,7 @@ msgid "Ding! event"
 msgstr ""
 
 #: ding_event.info:0
-msgid "Controls the event content type and provides views, pages etc."
+msgid "Controls the event content type."
 msgstr ""
 
 #: ding_event.info:0

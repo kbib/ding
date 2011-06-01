@@ -1,6 +1,8 @@
 <?php
+// $Id$
+
 /**
- * @file
+ * @file ding_library_map.install
  * Install and uninstall code for the library map module.
  */
 
@@ -26,27 +28,8 @@ function ding_library_map_uninstall() {
   $markerDir = drupal_get_path('module', 'gmap').'/markers/ding_library_map';
   foreach (glob($markerDir.'/*') as $file)
   {
-    file_delete($file);
+    file_delete($file);    
   }
   @unlink($markerDir);
-}
-
-/**
- * Split up latitude and longitude variable into an array.
- */
-function ding_library_map_update_6100(&$sandbox) {
-  $setting = variable_get('ding_library_map_center', '');
-
-  if (!empty($setting)) {
-    list($lat, $lon) = explode(',', $setting);
-    variable_set('ding_library_map_center', array(
-      'lat' => $lat,
-      'lon' => $lon,
-    ));
-  }
-  else {
-    # Delete bogus data, if any.
-    variable_del('ding_library_map_center');
-  }
 }
 

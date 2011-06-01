@@ -1,4 +1,5 @@
 <?php
+// $Id$
 
 /**
  * @file ding_panels_layouts.module

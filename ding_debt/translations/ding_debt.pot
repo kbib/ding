@@ -1,3 +1,4 @@
+# $Id$
 #
 # LANGUAGE translation of Drupal (general)
 # Copyright YEAR NAME <EMAIL@ADDRESS>
@@ -10,7 +11,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2011-01-19 14:29+0100\n"
+"POT-Creation-Date: 2010-10-28 13:14+0200\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -55,47 +56,29 @@ msgstr ""
 msgid "user"
 msgstr ""
 
-#: plugins/content_types/debt_list.inc:61
-msgid "You owe @amount kr."
+#: plugins/content_types/debt_list.inc:52
+msgid "You owe @amount for “%note”. !pay_link."
 msgstr ""
 
-#: plugins/content_types/debt_list.inc:63
-msgid "for “%note”"
-msgstr ""
-
-#: plugins/content_types/debt_list.inc:70
-msgid "and !debt_others_link"
-msgstr ""
-
-#: plugins/content_types/debt_list.inc:76
-msgid "for !debts_link"
-msgstr ""
-
-#: plugins/content_types/debt_list.inc:83
-msgid ". !debt_pay_link."
-msgstr ""
-
-#: plugins/content_types/debt_list.inc:84
+#: plugins/content_types/debt_list.inc:55;67
 msgid "Pay now"
 msgstr ""
 
-#: plugins/content_types/debt_list.inc:105
+#: plugins/content_types/debt_list.inc:62
+msgid "You owe @amount for “%note” and !others_link. !pay_link."
+msgstr ""
+
+#: plugins/content_types/debt_list.inc:88
 msgid "“@s”: Debts notice"
 msgstr ""
 
-#: plugins/content_types/debt_list.inc:107
+#: plugins/content_types/debt_list.inc:90
 msgid "“@s”: Debts list"
 msgstr ""
 
-#: plugins/content_types/debt_list.inc:71
+#: plugins/content_types/debt_list.inc:65
 msgid "one other"
 msgid_plural "@count others"
-msgstr[0] ""
-msgstr[1] ""
-
-#: plugins/content_types/debt_list.inc:77
-msgid "one debt"
-msgid_plural "@count debts"
 msgstr[0] ""
 msgstr[1] ""
 
@@ -107,27 +90,19 @@ msgstr ""
 msgid "No debt provider active."
 msgstr ""
 
-#: ding_debt.module:103
-msgid "Please select one or more debts to pay."
-msgstr ""
-
-#: ding_debt.module:114
-msgid "Payment must be larger than zero."
-msgstr ""
-
-#: ding_debt.module:126
+#: ding_debt.module:102
 msgid "Select"
 msgstr ""
 
-#: ding_debt.module:127
+#: ding_debt.module:103
 msgid "Note"
 msgstr ""
 
-#: ding_debt.module:128
+#: ding_debt.module:104
 msgid "Date"
 msgstr ""
 
-#: ding_debt.module:129
+#: ding_debt.module:105
 msgid "Amount"
 msgstr ""
 

@@ -1,4 +1,5 @@
 <?php
+// $Id$
 
 /**
  * Change admin password form.

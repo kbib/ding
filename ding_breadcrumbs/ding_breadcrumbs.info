@@ -1,3 +1,4 @@
+; $Id$
 name = Ding! breadcrumbs 
 description = Provides customised breadcrumb navigation for libraries, search, etc.
 package = Ding!

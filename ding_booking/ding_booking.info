@@ -1,3 +1,4 @@
+; $Id$
 name = Ding booking
 description = Adds support for booing Ting objects if the library system supports this
 package = Ding!

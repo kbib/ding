@@ -1,4 +1,5 @@
 <?php
+// $Id$
 
 /**
  * Rendering of Ding cart item.

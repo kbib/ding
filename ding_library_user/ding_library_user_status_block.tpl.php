@@ -1,4 +1,5 @@
 <?php
+// $Id$
 
 /**
  * @file alma_user_status_block.tpl.php

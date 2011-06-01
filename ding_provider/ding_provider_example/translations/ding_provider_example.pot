@@ -1,3 +1,4 @@
+# $Id$
 #
 # LANGUAGE translation of Drupal (general)
 # Copyright YEAR NAME <EMAIL@ADDRESS>
@@ -16,7 +17,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2011-01-19 14:29+0100\n"
+"POT-Creation-Date: 2010-10-28 13:15+0200\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -138,11 +139,47 @@ msgid "Example user provider"
 msgstr ""
 
 #: plugins/user/dpe.inc:50
-msgid "Backend url"
+msgid "Credential cache duration"
 msgstr ""
 
 #: plugins/user/dpe.inc:51
-msgid "Not used."
+msgid "Determines how long the user’s library system credentials will be cached for. For the duration of the cache, the user will be able to access his personal information and interact with the library system without having to provide his credentials again."
+msgstr ""
+
+#: plugins/user/dpe.inc:53
+msgid "5 minutes"
+msgstr ""
+
+#: plugins/user/dpe.inc:54
+msgid "15 minutes"
+msgstr ""
+
+#: plugins/user/dpe.inc:55
+msgid "30 minutes"
+msgstr ""
+
+#: plugins/user/dpe.inc:56
+msgid "1 hour"
+msgstr ""
+
+#: plugins/user/dpe.inc:57
+msgid "3 hours"
+msgstr ""
+
+#: plugins/user/dpe.inc:58
+msgid "12 hours"
+msgstr ""
+
+#: plugins/user/dpe.inc:59
+msgid "1 day"
+msgstr ""
+
+#: plugins/user/dpe.inc:60
+msgid "3 days"
+msgstr ""
+
+#: plugins/user/dpe.inc:61
+msgid "7 days"
 msgstr ""
 
 #: plugins/availability/dpe.inc:11

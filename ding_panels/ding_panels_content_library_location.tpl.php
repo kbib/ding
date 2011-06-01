@@ -1,4 +1,5 @@
 <?php
+// $Id$
 
 /**
  * @file ding_panels_content_library_location.tpl.php

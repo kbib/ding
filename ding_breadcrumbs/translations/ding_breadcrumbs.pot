@@ -1,3 +1,4 @@
+# $Id$
 #
 # LANGUAGE translation of Drupal (general)
 # Copyright YEAR NAME <EMAIL@ADDRESS>
@@ -9,7 +10,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2011-01-19 14:29+0100\n"
+"POT-Creation-Date: 2010-10-28 13:15+0200\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -18,23 +19,23 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: ding_breadcrumbs.module:17;78
+#: ding_breadcrumbs.module:17;57
 msgid "Home"
 msgstr ""
 
-#: ding_breadcrumbs.module:21;44;79
+#: ding_breadcrumbs.module:21;25;58
 msgid "Libraries"
 msgstr ""
 
-#: ding_breadcrumbs.module:49
+#: ding_breadcrumbs.module:30
 msgid "Blog"
 msgstr ""
 
-#: ding_breadcrumbs.module:52
+#: ding_breadcrumbs.module:33
 msgid "Events"
 msgstr ""
 
-#: ding_breadcrumbs.module:111
+#: ding_breadcrumbs.module:90
 msgid "Unknown"
 msgstr ""
 

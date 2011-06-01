@@ -1,3 +1,4 @@
+// $Id$
 
 /**
  * @file ding_page.js

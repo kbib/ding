@@ -1484,6 +1484,62 @@ function ding_base_strongarm() {
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'securepages_basepath';
+  $strongarm->value = '';
+
+  $export['securepages_basepath'] = $strongarm;
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'securepages_basepath_ssl';
+  $strongarm->value = '';
+
+  $export['securepages_basepath_ssl'] = $strongarm;
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'securepages_enable';
+  $strongarm->value = '1';
+
+  $export['securepages_enable'] = $strongarm;
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'securepages_ignore';
+  $strongarm->value = '*/autocomplete/*
+*/ajax/*';
+
+  $export['securepages_ignore'] = $strongarm;
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'securepages_pages';
+  $strongarm->value = 'node/add*
+node/*/edit
+user/*
+users/*
+admin*
+profil/*
+medarbejdere/*';
+
+  $export['securepages_pages'] = $strongarm;
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'securepages_secure';
+  $strongarm->value = '1';
+
+  $export['securepages_secure'] = $strongarm;
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'securepages_switch';
+  $strongarm->value = TRUE;
+
+  $export['securepages_switch'] = $strongarm;
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'theme_settings';
   $strongarm->value = array(
     'toggle_name' => 1,

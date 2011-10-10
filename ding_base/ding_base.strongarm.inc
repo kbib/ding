@@ -92,6 +92,20 @@ function ding_base_strongarm() {
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'default_oembedcore_provider';
+  $strongarm->value = array(
+    'youtube' => FALSE,
+    'vimeo' => FALSE,
+    'revision3' => FALSE,
+    'qik' => FALSE,
+    'flickr' => FALSE,
+    'viddler' => FALSE,
+  );
+
+  $export['default_oembedcore_provider'] = $strongarm;
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'htmLawed_format_1';
   $strongarm->value = array(
     'article' => array(

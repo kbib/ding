@@ -1,6 +1,4 @@
 <?php
-// $Id$
-
 /**
  * @file
  * Displays library nodes on a map.
@@ -14,7 +12,7 @@
 function ding_library_map_menu() {
   $items = array();
 
-  $items['admin/settings/ding_library_map'] = array(
+  $items['admin/settings/ding/library_map'] = array(
     'title' => 'Library map',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('ding_library_map_admin_settings_form'),
@@ -52,7 +50,9 @@ function ding_library_map_display() {
       'sat' => t('Sat'),
       'sun' => t('Sun'),
     ),
-  )), 'setting', 'footer', TRUE);
+    'markers' => _ding_library_marker_data(),
+    'path' => drupal_get_path('module', 'ding_library_map'),
+  )), 'setting');
 
   drupal_add_js($module_path . '/js/jquery.scrollTo/jquery.scrollTo-min.js');
   drupal_add_js($module_path . '/js/jquery.url/jquery.url.js');
@@ -60,47 +60,33 @@ function ding_library_map_display() {
 
   $map = _ding_library_map_data();
 
-  drupal_add_js('$(function() { Drupal.dingLibraryMap("' . $map['id'] . '", Drupal.settings.dingLibraryMap) });', 'inline');
-
-  return '<div class="ding-library-map">' . theme('gmap', $map) . '</div>';
-}
-
-function ding_library_map_gmap($hook, &$map) {
-	if ($hook == 'pre_theme_map') {
-		//Build markers
-		//We do not support private downloads at the moment
-    if (variable_get('file_downloads', FILE_DOWNLOADS_PUBLIC) != FILE_DOWNLOADS_PUBLIC) {
-    	watchdog(WATCHDOG_ALERT, t('Ding library markers does not support private downloads. Markers will not be shown correctly.'));
-    }
-    //With public method, we can handle all bookkeeping ourselves.
-    //HACK: Use modified version of code from gmap module to build markers
-    else {
-    	$markerpath = file_create_path('js');
-    	if (!$markerpath || !file_exists("$markerpath/ding_library_gmap_markers.js")) {
-      	ding_library_gmap_regenerate_markers();
-        $markerpath = file_create_path('js');
-      }
-    	drupal_add_js("$markerpath/ding_library_gmap_markers.js", 'module', 'header', FALSE, TRUE, FALSE);
-    }
-
-		//If the marker text contain no actual content then reset it to avoid normal behavior
-		//e.g. showing an empty Google Map pop up
-		if (is_array($map['markers'])) {
-			foreach ($map['markers'] as $i => $marker) {
-				if ($marker['text'] != '<div class="gmap-popup"></div>') {
-					$map['marker'][$i]['text'] = NULL;
-				}
-			}
-		}
-	}
+  return '<div class="ding-library-map">' . openlayers_render_map($map, 'ding_library_map') . '</div>';
 }
 
 /**
  * Helper function to generate map data.
- *
- * @TODO: This could do with a rewrite.
  */
 function _ding_library_map_data() {
+  $preset = openlayers_preset_load('ding_library_map');
+  $map = $preset->data;
+
+  if ($map) {
+    $map += array('id' => 'library-map', 'type' => 'map', 'zoom' => 12, 'minzoom' => 9, 'maxzoom' => 14, 'height' => '200px', 'width' => '100%', 'controltype' => 'Small', 'behavior' => array('extramarkerevents' => 1, 'nomousezoom' => 1));
+    if ($center = variable_get('ding_library_map_center', false)) {
+      if (isset($center['lat']) && isset($center['lon'])
+          && $center['lat'] && $center['lon']) {
+        $map['center']['initial']['centerpoint'] = $center['lon'] . ', ' . $center['lat'];
+      }
+    }
+  }
+
+  return $map;
+}
+
+/**
+ * Helper function to generate marker data.
+ */
+function _ding_library_marker_data() {
   $query = db_query("
     SELECT n.nid, n.title, l.street, l.city, l.postal_code, l.latitude, l.longitude
     FROM location AS l
@@ -116,268 +102,27 @@ function _ding_library_map_data() {
 		$libraries[$row->nid] = $row;
   }
 
+  // Load office hours data for each library.
   $oh_data = office_hours_bulk_load(implode(',', array_keys($libraries)), 'field_opening_hours');
 
-  $map = array('id' => 'library-map', 'type' => 'map', 'minzoom' => 9, 'maxzoom' => 14, 'height' => '200px', 'width' => '100%', 'controltype' => 'Small', 'behavior' => array('extramarkerevents' => 1, 'nomousezoom' => 1));
-  if ($center = variable_get('ding_library_map_center', false)) {
-    $center = explode(',', $center, 2);
-    $variables = array(0 => 'latitude', 1 => 'longitude');
-    foreach ($variables as $index => $attribute) {
-      if (isset($center[$index]) && is_numeric($center[$index])) {
-        $map[$attribute] = trim($center[$index]);
-      }
-    }
-  }
-
   // Add marker for each library.
+  $markers = array();
   foreach ($libraries as $lib) {
-    $status = (!empty($oh_data['data'][$lib->nid]['status'])) ? $oh_data['data'][$lib->nid]['status'] : 'closed';
-
-    $map['markers'][] = array(
-      'latitude' => $lib->latitude,
-      'longitude' => $lib->longitude,
-      'markername' => 'ding_library_map_' . $status,
+    $markers['library-' . $lib->nid] = array(
+      'nid' => (integer) $lib->nid,
+      'latitude' => (float) $lib->latitude,
+      'longitude' => (float) $lib->longitude,
       'name' => $lib->title,
       'street' => $lib->street,
       'city' => $lib->city,
-      'postal-code' => $lib->postal_code,
+      'postal-code' => (integer) $lib->postal_code,
       'opening_hours' => $oh_data['data'][$lib->nid]['week'],
-      'state' => $status,
       'url' => url('node/' . $lib->nid, array('absolute' => TRUE)),
       'text' => FALSE
     );
   }
 
-  return $map;
+  return $markers;
 }
 
-/**
- * Regenerate the markerdata file.
- *
- * @see gmap_regenerate_markers
- */
-function ding_library_gmap_regenerate_markers() {
-  $contents = '';
-
-  // Create the js/ within the files folder.
-  $jspath = file_create_path('js');
-  file_check_directory($jspath, FILE_CREATE_DIRECTORY);
-
-  // Append to existing marker configuration
-  $contents .= "// GMap marker image data.\n";
-  $contents .= "jQuery.extend(Drupal.gmap.icondata, ".drupal_to_js(ding_library_gmap_get_icondata(TRUE)) .");\n";
-
-  file_save_data($contents, "$jspath/ding_library_gmap_markers.js", FILE_EXISTS_REPLACE);
-}
-
-/**
- * Get the JSON icon data for all the default markers.
- *
- * @see gmap_get_icondata
- */
-function ding_library_gmap_get_icondata($reset = FALSE) {
-  static $icons;
-  if (is_array($icons) && !$reset) {
-    return $icons;
-  }
-
-  //Store in separate cache bucket
-  $icons = cache_get('ding_library_gmap_icondata');
-  if ($icons) {
-    $icons = $icons->data;
-  }
-
-  if ($reset || !$icons) {
-    require_once(drupal_get_path('module', 'gmap') .'/gmap_markerinfo.inc');
-    $icons = _ding_library_gmap_get_icondata();
-  }
-  cache_set('ding_library_gmap_icondata', $icons, 'cache');
-  return $icons;
-}
-
-/**
- * Get marker icon data for constructing json object.
- *
- * @see gmap_get_icondata
- */
-function _ding_library_gmap_get_icondata() {
-  $icons = array();
-
-  $imagetypes = array(
-    'shadow',
-    'printImage',
-    'mozPrintImage',
-    'printShadow',
-    'transparent',
-  );
-
-  $markerdir = drupal_get_path('module', 'ding_library_map') .'/markers';
-
-  // The following routines are designed to be easy to comprehend, not fast.
-  // This whole process gets cached.
-
-  // Get the ini files.
-  $inifiles = file_scan_directory($markerdir, '.*\.ini$');
-  // Parse the ini files and store by path
-  $inis = array();
-  foreach ($inifiles as $file) {
-    $path = substr($file->filename, strlen($markerdir), -strlen($file->basename));
-    if (!isset($inis[$path])) {
-      $inis[$path] = array();
-    }
-    $inis[$path][] = parse_ini_file($file->filename, TRUE);
-  }
-  unset($inifiles);
-
-  // Per directory..
-  foreach ($inis as $path => $path_inis) {
-    $icons[$path] = array(
-      'tempf' => array(),
-      'f' => array(),
-      'w' => array(),
-      'h' => array(),
-      'i' => array(), // Sets of sets
-    );
-
-    // Part 1: Collect image names
-    $filenames = array();
-    foreach ($path_inis as $ini) {
-      foreach ($ini as $k => $v) {
-        // Is this definition for an icon? (anything with a dot is a file)
-        if (strpos($k, '.') !== FALSE) {
-          // Add the icon name.
-          $filenames[$k] = TRUE;
-        }
-        else {
-          // Shadow / alternate search
-          foreach ($imagetypes as $check) {
-            if (isset($v[$check])) {
-              $filenames[$v[$check]] = TRUE;
-            }
-          }
-          // A sequence is a list of image names.
-          if (isset($v['sequence'])) {
-            foreach (explode(',', $v['sequence']) as $f) {
-              $filenames[trim($f)] = TRUE;
-            }
-          }
-        }
-      }
-    }
-    $icons[$path]['tempf'] = $filenames;
-  }
-  unset($filenames);
-
-  // Part 2: Assign ids, get width and height
-  foreach ($icons as $path => $v) {
-    $counter = 0;
-    foreach ($icons[$path]['tempf'] as $filename => $fv) {
-      // Skip empty filenames to avoid warnings.
-      if (empty($filename)) {
-        continue;
-      }
-      $size = getimagesize($markerdir . $path . $filename);
-
-      //Add prefix to path to convert from base marker directory to local one
-      $icons[$path]['f'][$counter] = _ding_library_map_convert_path() . $filename;
-
-
-      $icons[$path]['w'][$counter] = $size[0];
-      $icons[$path]['h'][$counter] = $size[1];
-      // Store an index under tempf for the next part...
-      $icons[$path]['tempf'][$filename] = $counter;
-      $counter++;
-    }
-    _gmap_compress_array($icons[$path]['w']);
-    _gmap_compress_array($icons[$path]['h']);
-  }
-
-  // Part 3: Main ini parsing
-  // Per directory...
-  foreach ($inis as $path => $path_inis) {
-    // Per file...
-    foreach ($path_inis as $ini) {
-      // Compression.
-      foreach ($ini as $k => $v) {
-        // Compress sequence filenames.
-        if (isset($ini[$k]['sequence'])) {
-          $temp = array();
-          foreach (explode(',', $ini[$k]['sequence']) as $file) {
-            $temp[] = $icons[$path]['tempf'][$file];
-          }
-          $ini[$k]['sequence'] = $temp;
-        }
-        // Compress other image field filenames.
-        foreach ($imagetypes as $t) {
-          if (isset($ini[$k][$t])) {
-            $ini[$k][$t] = $icons[$path]['tempf'][$ini[$k][$t]];
-          }
-        }
-        // Setup key for compression
-        $ini[$k]['key'] = $k;
-      }
-
-      $mv = array();
-      $iv = array();
-      if (isset($ini['defaults'])) {
-        $mv[0] = $ini['defaults'];
-        unset($ini['defaults']);
-      }
-      else {
-        $mv[0] = array();
-      }
-      foreach ($ini as $k => $v) {
-        if (strpos($k, '.') === FALSE) {
-          $mv[] = $ini[$k];
-        }
-        else {
-          $iv[] = $ini[$k];
-        }
-      }
-
-      $icons[$path]['i'][] = array(
-        _gmap_compress_icon_def($mv),
-        _gmap_compress_icon_def($iv),
-      );
-
-    }
-  }
-  foreach ($icons as $path => $v) {
-    unset($icons[$path]['tempf']);
-  }
-  return $icons;
-}
-
-/**
- * Given two paths - Gmap base marker directory and local module marker directory
- * calculate the relative path to get from one to the other.
- */
-function _ding_library_map_convert_path() {
-	$gmap_markers_path = explode(DIRECTORY_SEPARATOR, base_path() . variable_get('gmap_markerfiles', drupal_get_path('module', 'gmap')) .'/markers/set');
-	$local_markers_path = explode(DIRECTORY_SEPARATOR, base_path() . drupal_get_path('module', 'ding_library_map') .'/markers/ding_library_map');
-
-	//hold the differences
-	$diff_gmap = $gmap_markers_path;
-	$diff_local = $local_markers_path;
-
-	//if the paths have paths in common then we can ignore them
-	for ($i = 0; $i < sizeof($gmap_markers_path); $i++) {
-		if ($gmap_markers_path[$i] == $local_markers_path[$i]) {
-			array_shift($diff_gmap);
-			array_shift($diff_local);
-		} else {
-			break;
-		}
-	}
-
-	//backpedal for each remaining directory in the gmap markers path
-	foreach ($diff_gmap as &$gmap) {
-		$gmap = '..';
-	}
-
-	//step into each remaining directory in the local path
-	$convert_path = array_merge($diff_gmap, $diff_local);
-
-	//implode all path elements to the complete relative path
-	return implode(DIRECTORY_SEPARATOR, $convert_path). DIRECTORY_SEPARATOR;
-}
+include_once('ding_library_map.features.inc');

@@ -41,6 +41,7 @@ $plugin = array(
  *   - due_date: The date the material is due, format YYYY-MM-DD. Optional.
  *   - is_renewable: Whether the loan can be renewed.
  *   - remote_loan: Whether it is a remote loan. Optional.
+ *   - notes: Additional text associated with the reservation. Optional. 
  *
  * @see ding_provider_example_loan_details()
  */
@@ -100,6 +101,7 @@ function ding_provider_example_loan_get_loans($account) {
       // 'loan_date' missing for testing
       'due_date' => strftime('%Y-%m-%d', strtotime('+3 days')),
       'is_renewable' => TRUE,
+      'notes' => 'So long and thanks for all the fish!',
     ),
     '4526725' => array(
       'id' => '4526725',

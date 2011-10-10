@@ -1,7 +1,9 @@
-; $Id$
-name = Ding! admin
-description = Tweaks and overrides for the admin interface.
-package = Ding!
-core = 6.x
-dependencies[] = ding_base
-
+core = "6.x"
+dependencies[] = "ding_base"
+dependencies[] = "features"
+dependencies[] = "menu"
+description = "Tweaks and overrides for the admin interface."
+features[menu_links][] = "admin:admin/content"
+features[menu_links][] = "admin:node/add"
+name = "Ding! admin"
+package = "Ding!"

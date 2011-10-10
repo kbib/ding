@@ -7,29 +7,20 @@
  */
 
 /**
- * Implementation of hook_install().
+ * Split up latitude and longitude variable into an array.
  */
-function ding_library_map_install() {
-  //copy marker files
-  $markerDir = drupal_get_path('module', 'gmap').'/markers/ding_library_map/';
-  @mkdir($markerDir);
-  $files = glob(dirname(__FILE__).'/markers/*');
-  foreach ($files as $file) {
-    copy($file, $markerDir.basename($file));
-  }
-  gmap_regenerate_markers();
-}
+function ding_library_map_update_6100(&$sandbox) {
+  $setting = variable_get('ding_library_map_center', '');
 
-/**
- * Implementation of hook_uninstall().
- */
-function ding_library_map_uninstall() {
-  //delete marker files
-  $markerDir = drupal_get_path('module', 'gmap').'/markers/ding_library_map';
-  foreach (glob($markerDir.'/*') as $file)
-  {
-    file_delete($file);    
+  if (!empty($setting)) {
+    list($lat, $lon) = explode(',', $setting);
+    variable_set('ding_library_map_center', array(
+      'lat' => $lat,
+      'lon' => $lon,
+    ));
   }
-  @unlink($markerDir);
+  else {
+    # Delete bogus data, if any.
+    variable_del('ding_library_map_center');
+  }
 }
-

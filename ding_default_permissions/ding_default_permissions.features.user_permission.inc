@@ -51,7 +51,8 @@ function ding_default_permissions_user_default_permissions() {
     'name' => 'access environment indicator',
     'roles' => array(
       '0' => 'administrator',
-      '1' => 'editor',
+      '1' => 'author',
+      '2' => 'editor',
     ),
   );
 
@@ -62,7 +63,6 @@ function ding_default_permissions_user_default_permissions() {
       '0' => 'administrator',
       '1' => 'anonymous user',
       '2' => 'authenticated user',
-      '3' => 'author',
     ),
   );
 
@@ -80,8 +80,8 @@ function ding_default_permissions_user_default_permissions() {
     'name' => 'access site-wide contact form',
     'roles' => array(
       '0' => 'administrator',
-      '1' => 'author',
-      '2' => 'editor',
+      '1' => 'anonymous user',
+      '2' => 'authenticated user',
     ),
   );
 
@@ -600,7 +600,7 @@ function ding_default_permissions_user_default_permissions() {
     'name' => 'pay using dibs',
     'roles' => array(
       '0' => 'administrator',
-      '1' => 'editor',
+      '1' => 'authenticated user',
     ),
   );
 

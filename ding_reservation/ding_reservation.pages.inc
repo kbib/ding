@@ -6,8 +6,16 @@
  */
 function ding_reservation_page_reserve_item($object, $reservable = NULL) {
   global $user;
-  if (!$reservable) {
+
+  $args = func_get_args();
+  if (sizeof($args) == 1) {
+    //No id for the reserable item so get it from the Ting object
     $reservable = $object->localId;
+  } else {
+    //Some reserable items e.g. periodicals have complex ids containing /
+    //These are intepreted as seperate arguments for the page callback so
+    //combine them.
+    $reservable = implode('/', array_slice($args,1));
   }
   $is_ahah = ding_reservation_detect_ahah();
 
@@ -127,7 +135,7 @@ function ding_reservation_confirm_form(&$form_state, $account, $object, $reserva
  */
 function ding_reservation_confirm_form_submit($form, &$form_state) {
   $reservation = ding_provider_invoke('reservation', 'create', $form_state['values']['account'], $form_state['values']['reservable'], array('pickup_branch' => $form_state['values']['account']->preferred_branch));
-  
+
   if($reservation && ($reservation['status'] == DING_RESERVATION_SUCCESS)) {
     drupal_set_message(t('@item is now on your reservation list.', array('@item' => $form_state['values']['object']->title)));
   }

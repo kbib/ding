@@ -61,6 +61,25 @@ function ding_event_theme() {
 }
 
 /**
+ * Implementation of hook_views_pre_render().
+ */
+function ding_event_views_pre_render(&$view) {
+  // When the event list is being displayed on a library page...
+  if ($view->name == 'event_list' && $view->current_display == 'panel_pane_2') {
+    // Get the link to the library's event page.
+    $slug = ding_library_get_slug($view->args[0]);
+    $url = url('biblioteker/' . $slug . '/arrangementer');
+
+    // Replace the URL in the more link to point at the library's event
+    // page instead of the global one.
+    $view->display_handler->options['footer'] = preg_replace(
+      '/href="[^"]+" class="more-link"/',
+      'href="' . $url . '" class="more-link"/',
+      $view->display_handler->options['footer'], 1);
+  }
+}
+
+/**
  * Implementation of hook_ctools_plugin_directory().
  *
  * Tells CTools (and thus Panels) where to look for plugin code.
@@ -163,7 +182,7 @@ function ding_event_get_similar($node, $count = 5) {
 }
 
 /**
- *
+ * Preprocess variables for the node template.
  */
 function ding_event_preprocess_node(&$vars) {
   if ($vars['type'] == 'event') {

@@ -26,6 +26,15 @@ function ding_reservation_menu() {
     'type' => MENU_CALLBACK,
   );
 
+  $items['admin/settings/ding/ding_reservation'] = array(
+    'title' => 'Reservation settings',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('ding_reservation_admin_settings_form'),
+    'access arguments' => array('administer site configuration'),
+    'type' => MENU_NORMAL_ITEM,
+    'file' => 'ding_reservation.admin.inc',
+  );
+
   return $items;
 }
 
@@ -34,7 +43,7 @@ function ding_reservation_menu() {
  */
 function ding_reservation_form_ding_cart_list_form_alter(&$form, $form_state) {
   if (ding_provider_supports('reservation', 'options')) {
-    $form['options'] = ding_provider_invoke('reservation', 'options', $account, TRUE);
+    $form['options'] = ding_provider_invoke('reservation', 'options', $form['account']['#value'], TRUE);
     $form['options']['#tree'] = TRUE;
   }
 
@@ -268,4 +277,11 @@ function ding_reservation_ting_object_is($object, $class) {
     }
     return TRUE;
   }
+}
+
+/**
+ * Returns the site default interest period in days.
+ */
+function ding_reservation_default_interest_period() {
+  return variable_get('ding_reservation_default_interest_period', DING_RESERVATION_DEFAULT_INTEREST_PERIOD);
 }

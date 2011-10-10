@@ -55,7 +55,7 @@ function ding_cart_schema() {
       ),
       'created' => array(
         'description' => t('Timestamp for when this record was created.'),
-        'type' => int,
+        'type' => 'int',
         'unsigned' => TRUE,
         'not null' => TRUE,
       ),
@@ -63,25 +63,21 @@ function ding_cart_schema() {
         'description' => t('The title for this record'),
         'type' => 'varchar',
         'length' => 255,
-        'not null' => TRUE,
       ),
       'author' => array(
         'description' => t('The author name for this record'),
         'type' => 'varchar',
         'length' => 255,
-        'not null' => TRUE,
       ),
       'type' => array(
         'description' => t('The record type - book, DVD, magnaprint, etc.'),
         'type' => 'varchar',
         'length' => 255,
-        'not null' => TRUE,
       ),
       'thumbnail_url' => array(
         'description' => t('The thumbnail URL for this record'),
         'type' => 'varchar',
         'length' => 255,
-        'not null' => TRUE,
       ),
     ),
     'primary key' => array('uid', 'local_id'),
@@ -129,3 +125,21 @@ function ding_cart_update_6000(&$sandbox) {
 
   return $ret;  
 }
+
+/**
+ * Make varchar columns nullable if they have no default value and are 
+ * not required.
+ */
+function ding_cart_update_6001(&$sandbox) {
+  $ret = array();
+
+  foreach (array('title', 'author', 'type', 'thumbnail_url') as $fieldname) {
+    db_change_field($ret, 'ding_cart', $fieldname, $fieldname, array(
+      'type' => 'varchar',
+      'length' => 255,
+    ));
+  }
+
+  return $ret;
+}
+

@@ -165,10 +165,9 @@ function theme_ding_reservation_list_form($form) {
         );
       }
 
-      $image_url = ting_covers_faust_url($item['record_id'], '80_x');
       $cells['image'] = array(
         'class' => 'image',
-        'data' => ($image_url) ? theme('image', $image_url, '', '', NULL, FALSE) : '',
+        'data' => theme('ding_library_user_list_item_image', 'loan', $item, '80_x'),
       );
 
       $cells['title'] = array(

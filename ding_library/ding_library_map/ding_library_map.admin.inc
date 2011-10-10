@@ -1,22 +1,34 @@
-<?php // $Id$
-
+<?php
 /**
- * @file ding_library_map.admin.inc
- * Admin forms
+ * @file
+ * Admin forms for the Ding Library Map module.
  */
 
 /**
- * The admin settings form.
+ * Main admin settings form.
  */
 function ding_library_map_admin_settings_form(&$form_state) {
+  $lon_lat = variable_get('ding_library_map_center', array('lat' => '', 'lon' => ''));
   $form = array();
 
-  $form['ding_library_map']['ding_library_map_center'] = array(
-    '#type' => 'textfield',
+  $form['ding_library_map_center'] = array(
+    '#type' => 'fieldset',
     '#title' => t('Map center'),
-    '#description' => t('The default center coordinates of the map, expressed as a decimal latitude and longitude, separated by a comma. Leave blank to use Gmap module default.'),
-    '#default_value' => variable_get('ding_library_map_center', ''),
+    '#description' => t('The default center coordinates of the map, expressed as a decimal latitude and longitude.'),
+    '#tree' => TRUE,
   );
-  
+
+  $form['ding_library_map_center']['lat'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Latitude'),
+    '#default_value' => $lon_lat['lat'],
+  );
+
+  $form['ding_library_map_center']['lon'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Longitude'),
+    '#default_value' => $lon_lat['lon'],
+  );
+
   return system_settings_form($form);
 }

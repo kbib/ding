@@ -20,7 +20,7 @@ function ding_reservation_page_reserve_item($object, $reservable = NULL) {
     //combine them.
     $reservable = implode('/', array_slice($args,1));
   }
-  
+
   // If client wants JSON (usually AJAX requests), let's give it to them.
   if (ding_reservation_detect_ahah()) {
     $reply = array();
@@ -143,12 +143,12 @@ function ding_reservation_confirm_form(&$form_state, $account, $object, $reserva
  */
 function ding_reservation_confirm_form_submit($form, &$form_state) {
   $reservation = ding_provider_invoke('reservation', 'create', $form_state['values']['account'], $form_state['values']['reservable'], array('pickup_branch' => $form_state['values']['account']->preferred_branch));
-  
+
   if ($reservation && $reservation['status'] == DING_RESERVATION_SUCCESS) {
     drupal_set_message(t('@item is now on your reservation list.', array('@item' => $form_state['values']['object']->title)));
   }
   else {
-    drupal_set_message(t('Reservation of @item failed.', array('@item' => $form_state['values']['object']->title)));
+    drupal_set_message(t('Reservation of @item failed.', array('@item' => $form_state['values']['object']->title)), 'error');
   }
 
   $form_state['redirect'] = $form_state['values']['dest_url'];

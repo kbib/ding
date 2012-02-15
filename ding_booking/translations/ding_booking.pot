@@ -1,4 +1,3 @@
-# $Id$
 #
 # LANGUAGE translation of Drupal (general)
 # Copyright YEAR NAME <EMAIL@ADDRESS>
@@ -12,7 +11,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2010-10-28 13:15+0200\n"
+"POT-Creation-Date: 2011-01-19 14:29+0100\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -21,39 +20,55 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: ding_booking.module:33
+#: ding_booking.module:28
 msgid "Book"
 msgstr ""
 
-#: ding_booking.module:46 ding_booking.info:0
+#: ding_booking.module:41 ding_booking.info:0
 msgid "Ding booking"
 msgstr ""
 
-#: ding_booking.module:49
+#: ding_booking.module:44
 msgid "OK"
 msgstr ""
 
-#: ding_booking.module:49
+#: ding_booking.module:44
 msgid "No booking provider active."
 msgstr ""
 
-#: ding_booking.module:139
+#: ding_booking.module:112
+msgid "Delete selected bookings"
+msgstr ""
+
+#: ding_booking.module:138
+msgid "Bookings deleted."
+msgstr ""
+
+#: ding_booking.module:142
+msgid "Could not delete bookings."
+msgstr ""
+
+#: ding_booking.module:145
+msgid "Deleted @ok_count bookings, @failed_count failed"
+msgstr ""
+
+#: ding_booking.module:170
 msgid "Submit booking"
 msgstr ""
 
-#: ding_booking.module:156
+#: ding_booking.module:187
 msgid "Booking created."
 msgstr ""
 
-#: ding_booking.module:159
+#: ding_booking.module:190
 msgid "Error booking"
 msgstr ""
 
-#: ding_booking.module:151
+#: ding_booking.module:182
 msgid "ding_booking"
 msgstr ""
 
-#: ding_booking.module:151
+#: ding_booking.module:182
 msgid "Provider returned invalid result on create: @res"
 msgstr ""
 
@@ -149,15 +164,11 @@ msgstr ""
 msgid "Pickup branch"
 msgstr ""
 
-#: ding_booking.theme.inc:80;80
-msgid "Unable to renew loan"
-msgstr ""
-
-#: ding_booking.theme.inc:111
+#: ding_booking.theme.inc:103
 msgid "Unknown"
 msgstr ""
 
-#: ding_booking.theme.inc:121
+#: ding_booking.theme.inc:113
 msgid "No bookings found."
 msgstr ""
 

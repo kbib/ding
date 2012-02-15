@@ -75,7 +75,6 @@ function ding_content_content_default_fields() {
         'imagecache_680_200_crop' => 0,
         'imagecache_120_120' => 0,
         'imagecache_80_x' => 0,
-    		'imagecache_full_content' => 'imagecache_full_content',
       ),
       'insert_default' => 'auto',
       'insert_class' => '',

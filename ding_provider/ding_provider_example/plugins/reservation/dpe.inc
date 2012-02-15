@@ -1,6 +1,5 @@
 <?php
 
-// $Id$
 
 /**
  * @file
@@ -32,6 +31,9 @@ $plugin = array(
  *   An array of id => reservation, where reservation is an array of:
  *   - id: The same id as the key.
  *   - materials_number: Materials number, optional. Is shown to the user.
+ *   - ting_object: A TingClientObject instance. Optional. The object
+ *     represents the reserved material and provides the basis for displaying
+ *     titles, authors etc.
  *   - title: Title of the item. Optional.
  *   - authors: The authors of the item. Optional.
  *   - display_title: Alternative title string, optional. Used if title is
@@ -45,6 +47,7 @@ $plugin = array(
  *   - valid_to: Reservation valid to. Format: YYYY-MM-DD.
  *   - pickup_expire_date: For 'fetchable': Expiry of pickup. Optional
  *   - remote_reservation: Whether it is a remote reservation. Optional.
+ *   - notes: Additional text associated with the reservation. Optional.
  *
  * @see ding_provider_example_reservation_details()
  */
@@ -81,7 +84,9 @@ function ding_provider_example_reservation_list($account) {
       // For 'active' reservations:
       // Queue number. optional.
       'queue_number' => 3,
-
+      //Notes - some additional information
+      'notes' => "Rincewind was here.", 
+  
       // For 'fetchable' reservations, see the next entry.
     ),
     'euaeu' => array(
@@ -212,7 +217,8 @@ function ding_provider_example_reservation_options($account, $create = TRUE) {
  * @param array $options
  *   The options gathered through reservation_options.
  * @return array
- *   Reservation_id => success.
+ *   Reservation_id => TRUE for success, FALSE or an error message string
+ *   for failures.
  */
 function ding_provider_example_reservation_update($account, $reservation_ids, $options = array()) {
 

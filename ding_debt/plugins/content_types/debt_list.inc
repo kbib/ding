@@ -1,5 +1,4 @@
 <?php
-// $Id$
 
 /**
  * @file debt_list.inc
@@ -7,7 +6,7 @@
  */
 
 $plugin = array(
-  'title' => t('Library user profile'),
+  'title' => t('Library patron profile'),
 );
 
 /**
@@ -28,7 +27,7 @@ function ding_debt_debt_list_content_type_content_types() {
   // Append our default settings to every type.
   foreach ($types as $name => $type) {
     $types[$name] += array(
-      'category' => t('Library user profile'),
+      'category' => t('Library patron profile'),
       'required context' => new ctools_context_required(t('user'), 'user'),
     );
   }
@@ -80,11 +79,9 @@ function ding_debt_debt_list_content_type_render($subtype, $conf, $panel_args, $
           }
         }
 
-        if(module_exists('ding_dibs')){
-          $block->content .= t('. !debt_pay_link.', array(
-              '!debt_pay_link' => l(t('Pay now'), 'user/' . $account->uid . '/debts'),
-            ));
-        }
+        $block->content .= t('. !debt_pay_link.', array(
+            '!debt_pay_link' => l(t('Pay now'), 'user/' . $account->uid . '/debts'),
+          ));
 
         break;
 

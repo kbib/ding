@@ -1,4 +1,3 @@
-; $Id$
 name = Draggable checkboxes
 description = Exposes a drag and drop reorderable checkboxes form element to other modules.
 core = 6.x

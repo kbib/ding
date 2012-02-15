@@ -1,4 +1,3 @@
-# $Id$
 #
 # LANGUAGE translation of Drupal (general)
 # Copyright YEAR NAME <EMAIL@ADDRESS>
@@ -10,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2010-10-28 13:15+0200\n"
+"POT-Creation-Date: 2011-01-19 14:29+0100\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -43,11 +42,11 @@ msgstr ""
 msgid "Payment not verified by DIBS. This indicates a problem with the network. Please try again and contact the system administrator if it persists"
 msgstr ""
 
-#: ding_dibs.module:131
+#: ding_dibs.module:127
 msgid "Payment of library dues"
 msgstr ""
 
-#: ding_dibs.module:32;39;47;56;86;92
+#: ding_dibs.module:32;39;47;56;82;88
 msgid "ding_dibs"
 msgstr ""
 
@@ -67,11 +66,11 @@ msgstr ""
 msgid "DIBS has verified transaction %transaction, order %order."
 msgstr ""
 
-#: ding_dibs.module:86
+#: ding_dibs.module:82
 msgid "Callback function @function doesn't exist."
 msgstr ""
 
-#: ding_dibs.module:92
+#: ding_dibs.module:88
 msgid "No callback function defined."
 msgstr ""
 

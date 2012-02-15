@@ -241,11 +241,11 @@ function ding_page_content_default_fields() {
       ),
       'teaser' => array(
         'format' => '120_120_linked',
-        'exclude' => 1,
+        'exclude' => 0,
       ),
       'full' => array(
         'format' => 'hidden',
-        'exclude' => 1,
+        'exclude' => 0,
       ),
       '4' => array(
         'format' => 'image_plain',

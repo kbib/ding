@@ -1,11 +1,14 @@
 <?php
 
-// $Id$
-
 /**
  * Magic value for providers to return if not authenticated, md5('DING_PROVIDER_AUTH_REQUIRED').
  */
 define('DING_PROVIDER_AUTH_REQUIRED', '9830f1673cd4295cfe742c1cf8933fa0');
+
+/**
+ * Ditto for DING_PROVIDER_AUTH_BLOCKED.
+ */
+define('DING_PROVIDER_AUTH_BLOCKED', '4e5531951f55ab8f6895684999c69c2');
 
 /**
  * Implementation of hook_menu().

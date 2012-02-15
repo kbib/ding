@@ -1,5 +1,4 @@
 <?php
-// $Id$
 
 /**
  * Get similar terms preview asyncroneously.

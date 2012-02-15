@@ -1,4 +1,3 @@
-// $Id$
 
 Drupal.similartermsPreview = {
   // Check interval needs to be fairly high, since Drupal's autocomplete

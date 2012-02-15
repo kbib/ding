@@ -38,3 +38,4 @@ function ding_library_map_admin_settings_form(&$form_state) {
 
   return system_settings_form($form);
 }
+

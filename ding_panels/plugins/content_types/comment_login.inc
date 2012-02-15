@@ -1,5 +1,4 @@
 <?php
-// $Id$
 
 /**
  * @file comment_login.inc

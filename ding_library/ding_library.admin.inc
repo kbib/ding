@@ -1,4 +1,4 @@
-<?php // $Id$
+<?php
 
 /**
  * @file ding_library.admin.inc

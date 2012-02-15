@@ -39,10 +39,10 @@ function ding_library_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'gmap_default';
   $strongarm->value = array(
-    'width' => '675px',
+    'width' => '300px',
     'height' => '200px',
-    'latlong' => '55.818451483958896,10.593910217285156',
-    'zoom' => '12',
+    'latlong' => '40,0',
+    'zoom' => '3',
     'maxzoom' => '14',
     'styles' => array(
       'line_default' => array(

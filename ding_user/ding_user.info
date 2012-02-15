@@ -1,4 +1,3 @@
-; $Id$
 name = Ding! user
 description = Modifies the Drupal user system to use more secure passwords annd similar customisation.
 package = Ding!

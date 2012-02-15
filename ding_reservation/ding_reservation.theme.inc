@@ -1,5 +1,4 @@
 <?php
-// $Id$
 
 /**
  * Theming of reservation detailed list form.
@@ -202,7 +201,7 @@ function theme_ding_reservation_list_form($form) {
 
       $rows[] = array(
         'data' => $cells,
-        'class' => 'active-reservations',
+        'class' => $classes,
       );
     }
 

@@ -1,5 +1,4 @@
 <?php
-// $Id$
 
 /**
  * Implementation of hook_menu().
@@ -81,18 +80,8 @@ function ding_library_user_user($op, &$edit, &$account, $category = NULL) {
   switch ($op) {
     case 'view':
       if ($account->uid == $user->uid) {
+        // Hide the standard summary, since the rest is provided by Panels.
         $account->content['summary']['#access'] = FALSE;
-        $account->content['personal_info'] = array(
-          '#type' => 'user_profile_category',
-          '#title' => t('Your profile'),
-        );
-
-        // I know this is not pretty, should be refactored to something more
-        // like standard profile view.
-        $account->content['personal_info']['vcard'] = array(
-          '#value' => theme('ding_library_user_personal_info', $account, NULL),
-        );
-
       }
       break;
   }
@@ -272,11 +261,13 @@ function ding_library_user_authenticate_user($name, $pass) {
 }
 
 /**
+ * Helper function to generate a default username.
  *
+ * Since users should not use their Drupal username to log in, we generate
+ * a long, unguessable name.
  */
 function ding_library_user_default_authname($name) {
   return md5(drupal_get_private_key() . $name) . '@ding_library_user';
-
 }
 
 /**
@@ -401,10 +392,6 @@ function ding_library_user_required() {
       }
       $new_destination = 'destination='. urlencode($path);
       unset($_REQUEST['destination']);
-      // first check wether a drupal user is actually logged in
-      if(!$user->uid){
-        drupal_goto('user/login', $new_destination);
-      }
       drupal_goto('user/' . $user->uid . '/authenticate', $new_destination);
     }
   }

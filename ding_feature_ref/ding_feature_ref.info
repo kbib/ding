@@ -1,4 +1,3 @@
-; $Id$
 name = Ding! feature reference
 description = Handles library-feature relations, so only global features and features related to the actual library can be referenced. Also provides access control, so normal users can only add features for libraries they are related to.
 package = Ding!

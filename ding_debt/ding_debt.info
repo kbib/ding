@@ -1,4 +1,3 @@
-; $Id$
 name = Ding debt
 description = Adds support for displaying and paying fines.
 package = Ding!

@@ -1,4 +1,3 @@
-# $Id$
 #
 # LANGUAGE translation of Drupal (general)
 # Copyright YEAR NAME <EMAIL@ADDRESS>
@@ -16,7 +15,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2010-10-28 13:14+0200\n"
+"POT-Creation-Date: 2011-01-19 14:29+0100\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -25,7 +24,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: ding_cart.module:61
+#: ding_cart.module:58
 msgid "Add to cart"
 msgstr ""
 
@@ -37,7 +36,7 @@ msgstr ""
 msgid "Title"
 msgstr ""
 
-#: ding_cart.module:165
+#: ding_cart.module:157
 msgid "The cart is empty."
 msgstr ""
 
@@ -73,39 +72,39 @@ msgstr ""
 msgid "“@s”: Cart details"
 msgstr ""
 
-#: ding_cart.install:30
+#: ding_cart.install:36
 msgid "Keep track of the user’s cart."
 msgstr ""
 
-#: ding_cart.install:33
+#: ding_cart.install:39
 msgid "{users}.uid for user"
 msgstr ""
 
-#: ding_cart.install:39
+#: ding_cart.install:45
 msgid "Local ID in Ting lingo."
 msgstr ""
 
-#: ding_cart.install:45
+#: ding_cart.install:51
 msgid "Ting ID – used to look up data from Ting."
 msgstr ""
 
-#: ding_cart.install:51
+#: ding_cart.install:57
 msgid "Timestamp for when this record was created."
 msgstr ""
 
-#: ding_cart.install:57
+#: ding_cart.install:63
 msgid "The title for this record"
 msgstr ""
 
-#: ding_cart.install:63
+#: ding_cart.install:69
 msgid "The author name for this record"
 msgstr ""
 
-#: ding_cart.install:69
+#: ding_cart.install:75
 msgid "The record type - book, DVD, magnaprint, etc."
 msgstr ""
 
-#: ding_cart.install:75
+#: ding_cart.install:81
 msgid "The thumbnail URL for this record"
 msgstr ""
 
@@ -129,10 +128,6 @@ msgstr ""
 msgid "Please select one or more items from the cart."
 msgstr ""
 
-#: ding_cart.forms.inc:66
-msgid "Date must be in the future."
-msgstr ""
-
 #: ding_cart.buttons.js:0
 msgid "View cart…"
 msgstr ""
@@ -154,7 +149,7 @@ msgid "@item is already in your cart."
 msgstr ""
 
 #: ding_cart.pages.inc:37
-msgid "Success"
+msgid "Added to cart"
 msgstr ""
 
 #: ding_cart.pages.inc:38

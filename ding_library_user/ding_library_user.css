@@ -1,0 +1,13 @@
+
+.renewal-status {
+  display: block;
+  padding-left: 4px;
+}
+
+.renewal-status.success {
+  background-color: #76ff76;
+}
+
+.renewal-status.failed {
+  background-color: #ff7676;
+}

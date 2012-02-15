@@ -1,5 +1,8 @@
 <?php
-// $Id$
+/**
+ * @file
+ * Page callbacks for Ding reservation module.
+ */
 
 /**
  * Reserve an item immediately.
@@ -17,10 +20,9 @@ function ding_reservation_page_reserve_item($object, $reservable = NULL) {
     //combine them.
     $reservable = implode('/', array_slice($args,1));
   }
-  $is_ahah = ding_reservation_detect_ahah();
-
+  
   // If client wants JSON (usually AJAX requests), let's give it to them.
-  if ($is_ahah) {
+  if (ding_reservation_detect_ahah()) {
     $reply = array();
     $result = ding_provider_invoke('reservation', 'create', $user, $reservable);
     switch ($result['status']) {
@@ -37,6 +39,12 @@ function ding_reservation_page_reserve_item($object, $reservable = NULL) {
         $reply['error_type'] = 'not-logged-in';
         $reply['title'] = t('Not logged in');
         $reply['message'] = t('You have to log in to make reservations.');
+        break;
+      case DING_PROVIDER_AUTH_BLOCKED:
+        $reply['status'] = 'error';
+        $reply['error_type'] = 'account-blocked';
+        $reply['title'] = t('Account blocked');
+        $reply['message'] = t('Your are not allowed to make reservations, as your account is blocked. Contact your local library to have your account reinstated.');
         break;
       case DING_RESERVATION_ERROR_NO_DEFAULT_BRANCH:
         $reply['status'] = 'error';
@@ -72,7 +80,7 @@ function ding_reservation_page_reserve_item($object, $reservable = NULL) {
     }
 
     // We are returning JavaScript, so tell the browser.
-    drupal_set_header('Content-Type: application/json; charset=utf-8');
+    drupal_set_header('Content-Type: application/json');
     echo json_encode($reply);
     return;
   }
@@ -135,12 +143,12 @@ function ding_reservation_confirm_form(&$form_state, $account, $object, $reserva
  */
 function ding_reservation_confirm_form_submit($form, &$form_state) {
   $reservation = ding_provider_invoke('reservation', 'create', $form_state['values']['account'], $form_state['values']['reservable'], array('pickup_branch' => $form_state['values']['account']->preferred_branch));
-
-  if($reservation && ($reservation['status'] == DING_RESERVATION_SUCCESS)) {
+  
+  if ($reservation && $reservation['status'] == DING_RESERVATION_SUCCESS) {
     drupal_set_message(t('@item is now on your reservation list.', array('@item' => $form_state['values']['object']->title)));
   }
   else {
-    drupal_set_message(t('Reservation of @item failed.', array('@item' => $form_state['values']['object']->title)),'error');
+    drupal_set_message(t('Reservation of @item failed.', array('@item' => $form_state['values']['object']->title)));
   }
 
   $form_state['redirect'] = $form_state['values']['dest_url'];

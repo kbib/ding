@@ -1,5 +1,4 @@
 <?php
-// $Id$
 
 /**
  * Theming of a records list.
@@ -125,6 +124,7 @@ function theme_ding_library_user_loan_list_form($form) {
       $output .= theme('table', $header, $rows, array('colgroups' => $colgroups), $table_title);
     }
   }
+
   if (empty($output)) {
     return t('No loans found.');
   }
@@ -151,7 +151,7 @@ function template_preprocess_ding_library_user_list_item(&$vars) {
    */
   if (ding_provider_supports($vars['provider_type'], 'details')) {
     $item = ding_provider_invoke($vars['provider_type'], 'details', $vars['item']);
-  $vars['item'] = $item;
+    $vars['item'] = $item;
   }
   else {
     $item = $vars['item'];
@@ -159,7 +159,8 @@ function template_preprocess_ding_library_user_list_item(&$vars) {
 
   if ($item['ting_object']) {
     $object = $item['ting_object'];
-    $vars['title'] = $vars['title_plain'] = check_plain($object->title);
+    //Fall back to object title if no title is specified
+    $vars['title'] = $vars['title_plain'] = ($item['title']) ? check_plain($item['title']) : check_plain($object->title);
 
     if ($object->url) {
       $vars['url'] = $object->url;

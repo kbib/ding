@@ -41,3 +41,4 @@
 #library-info .opening-hours dt { float: left; }
 #library-info .opening-hours dd { margin-left: 40%; }
 *:first-child+html #library-info .opening-hours dd { margin-left: 20%; } /* IE7 margin fix */
+

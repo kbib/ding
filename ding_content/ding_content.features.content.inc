@@ -13,10 +13,6 @@ function ding_content_content_default_fields() {
     'display_settings' => array(
       'weight' => '3',
       'parent' => '',
-      '4' => array(
-        'format' => 'hidden',
-        'exclude' => 1,
-      ),
       'label' => array(
         'format' => 'hidden',
       ),
@@ -27,6 +23,10 @@ function ding_content_content_default_fields() {
       'full' => array(
         'format' => 'hidden',
         'exclude' => 0,
+      ),
+      '4' => array(
+        'format' => 'hidden',
+        'exclude' => 1,
       ),
       '2' => array(
         'format' => 'image_plain',
@@ -93,7 +93,7 @@ function ding_content_content_default_fields() {
     'field_name' => 'field_file_attachments',
     'type_name' => 'article',
     'display_settings' => array(
-      'weight' => '11',
+      'weight' => '5',
       'parent' => '',
       'label' => array(
         'format' => 'above',
@@ -370,13 +370,13 @@ function ding_content_content_default_fields() {
     'field_name' => 'field_ting_refs',
     'type_name' => 'article',
     'display_settings' => array(
-      'weight' => '10',
+      'weight' => '6',
       'parent' => '',
       'label' => array(
         'format' => 'above',
       ),
       'teaser' => array(
-        'format' => 'default',
+        'format' => 'hidden',
         'exclude' => 0,
       ),
       'full' => array(
@@ -420,12 +420,8 @@ function ding_content_content_default_fields() {
     'field_name' => 'field_content_images',
     'type_name' => 'event',
     'display_settings' => array(
-      'weight' => '5',
+      'weight' => '4',
       'parent' => '',
-      '4' => array(
-        'format' => 'hidden',
-        'exclude' => 1,
-      ),
       'label' => array(
         'format' => 'hidden',
       ),
@@ -436,6 +432,10 @@ function ding_content_content_default_fields() {
       'full' => array(
         'format' => 'hidden',
         'exclude' => 0,
+      ),
+      '4' => array(
+        'format' => 'hidden',
+        'exclude' => 1,
       ),
       '2' => array(
         'format' => 'image_plain',
@@ -779,7 +779,7 @@ function ding_content_content_default_fields() {
     'field_name' => 'field_list_image',
     'type_name' => 'event',
     'display_settings' => array(
-      'weight' => '6',
+      'weight' => '5',
       'parent' => '',
       'label' => array(
         'format' => 'hidden',
@@ -860,7 +860,7 @@ function ding_content_content_default_fields() {
     'field_name' => 'field_teaser',
     'type_name' => 'event',
     'display_settings' => array(
-      'weight' => '3',
+      'weight' => '2',
       'parent' => '',
       'label' => array(
         'format' => 'hidden',
@@ -923,12 +923,13 @@ function ding_content_content_default_fields() {
     'field_name' => 'field_ting_refs',
     'type_name' => 'event',
     'display_settings' => array(
+      'weight' => '9',
+      'parent' => '',
       'label' => array(
         'format' => 'above',
-        'exclude' => 0,
       ),
       'teaser' => array(
-        'format' => 'default',
+        'format' => 'hidden',
         'exclude' => 0,
       ),
       'full' => array(
@@ -1245,7 +1246,7 @@ function ding_content_content_default_fields() {
         ),
       ),
       'default_value_php' => NULL,
-      'label' => 'Beskrivelse',
+      'label' => 'Smagsprøve',
       'weight' => 0,
       'description' => '',
       'type' => 'text_textarea',
@@ -1372,7 +1373,7 @@ function ding_content_content_default_fields() {
         ),
       ),
       'default_value_php' => NULL,
-      'label' => 'Beskrivelse',
+      'label' => 'Smagsprøve',
       'weight' => '33',
       'description' => '',
       'type' => 'text_textarea',
@@ -1435,7 +1436,7 @@ function ding_content_content_default_fields() {
         ),
       ),
       'default_value_php' => NULL,
-      'label' => 'Beskrivelse',
+      'label' => 'Smagsprøve',
       'weight' => '33',
       'description' => '',
       'type' => 'text_textarea',
@@ -2014,7 +2015,7 @@ function ding_content_content_default_fields() {
         ),
       ),
       'default_value_php' => NULL,
-      'label' => 'Beskrivelse',
+      'label' => 'Smagsprøve',
       'weight' => '5',
       'description' => '',
       'type' => 'text_textarea',
@@ -2025,7 +2026,6 @@ function ding_content_content_default_fields() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Arbejder med');
-  t('Beskrivelse');
   t('Bibliotek');
   t('Biblioteker');
   t('Entré');
